@@ -1,0 +1,226 @@
+<%= render "shared/navigation" %>
+
+<!-- PAGE HEADER BREADCRUMBS -->
+<section class="page-header page-header-xs parallax parallax-3" style="background-image:url('assets/images/rocketElevators/imgpattern2.jpg')">
+<div class="overlay dark-2"></div>
+<div class="container">
+    <h1 style="text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px"><strong>REQUEST QUOTE</strong></h1>
+    <ol class="breadcrumb">
+        <li><a id="rockets-home" href="index.html">Home</a></li>
+        <li class="active">Request Quote</p></li>
+    </ol>
+</div>
+</section>
+<!-- /PAGE HEADER BREADCRUMS -->
+
+<!-- PARALLAX -->
+<section class="parallax parallax-2" style="background-image: url('assets/images/rocketElevators/businessSince.jpeg');">
+<div class="overlay dark-7"></div>
+<div class="container">
+    <div class="text-left">
+        <h3 style="text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px">
+            Get Estimated Price by Building Type
+        </h3>
+        <h4 style="color:rgb(170, 69, 69); text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px">
+            QUESTIONS? 
+            <a href="index.html#contact" class="btn btn-outline-primary btn-lg" style="margin-left: 20px">CONTACT US <i class="fa fa-angle-right"></i></a>
+        </h4>
+    </div>
+</div>
+</section>
+<!-- /PARALLAX -->
+
+
+<!-- FORM -->
+<section>
+<div class="container">
+    <form class="validate" id="quote-form">
+
+        <div class="select-building-type card card-default">
+            <div class="card-heading card-heading-transparent">
+                <label for="building-type" class="card-title"> 
+                    <h3>
+                        <span style="color:rgb(10, 101, 160); font-weight:bolder">STEP 1 |</span> Select Type of Building
+                    </h3> 
+                </label>
+            </div>
+            <div class="card-block" style="margin: 20px">
+                <select name="building-type" id="building-type" class="form-control pointer required">
+                    <option>---Select---</option>
+                    <option id="residential" value="residential">Residential</option>
+                    <option id="commercial" value="commercial">Commercial</option>
+                    <option id="corporate" value="corporate">Corporate</option>
+                    <option id="hybrid" value="hybrid">Hybrid</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="estimate-num-elv card card-default"  style="display: none;"> 
+            
+            <div class="card-heading step-description">
+                <h3>
+                    <span style="color:rgb(10, 101, 160); font-weight:bolder">STEP 2 |</span> Provide Building Information
+                </h3>
+            </div>
+
+            <div class="card-block">
+                <div class="row d-none" style="margin: 20px">
+                    <div id="number-of-floors" class="col-4 d-none residential commercial corporate hybrid">
+                        <label><h4>Number of Floors</h4></label>
+                        <input type="number" min="0" max="1000" oninput="this.value = Math.abs(this.value)" class="form-control" required>
+                    </div>
+                    <div id="number-of-basements" class="col-4 d-none residential commercial corporate hybrid">
+                        <label><h4>Number of Basements</h4></label>
+                        <input type="number" min="0" max="1000" class="form-control" oninput="this.value = Math.abs(this.value)" required>
+                    </div>
+                    <div id="number-of-apartments" class="col-4 d-none residential">
+                        <label><h4>Number of Appartments</h4></label>
+                        <input type="number" min="0" max="1000" class="form-control" oninput="this.value = Math.abs(this.value)" required>
+                    </div>
+                
+                    <div id="number-of-companies" class="col-4 d-none commercial hybrid">
+                        <label><h4>Number of Companies</h4></label>
+                        <input type="number" min="0" max="1000" class="form-control" oninput="this.value = Math.abs(this.value)" required>
+                    </div>
+                    <div id="number-of-parking-spots" class="col-4 d-none commercial corporate hybrid">
+                        <label><h4>Number of Parking Spots</h4></label>
+                        <input type="number" min="0" max="1000" class="form-control" oninput="this.value = Math.abs(this.value)" required>
+                    </div>
+                    <div id="number-of-elevators" class="col-4 d-none commercial">
+                        <label><h4>Number of Elevators</h4></label>
+                        <input type="number" min="0" max="1000" class="form-control" oninput="this.value = Math.abs(this.value)" required>
+                    </div>
+                
+                    <div id="number-of-corporations" class="col-4 d-none corporate">
+                        <label><h4>Number of Corporations</h4></label>
+                        <input type="number" min="0" max="1000" class="form-control" oninput="this.value = Math.abs(this.value)" required>
+                    </div>
+                    <div id="maximum-occupancy" class="col-4 d-none corporate hybrid">
+                        <label><h4>Maximum Occupancy</h4></label>
+                        <input type="number" min="0" max="1000" class="form-control" oninput="this.value = Math.abs(this.value)" required>
+                    </div>
+                    <div id="business-hours" class="col-4 d-none hybrid">
+                        <label><h4>Business Hours</h4></label>
+                        <input type="number" min="1" max="24" class="form-control" oninput="this.value = Math.abs(this.value)" required>
+                    </div>
+                    
+                                                
+                </div>
+
+                <div class="row" style="margin: 20px" id="elevator-amount">
+                    <div class="col-6">
+                        <label><h4 style="margin-bottom: 0px">Number of Elevators Required (Minimum of 1):</h4></label>
+                        <input class="form-control" type="text" readonly>	
+                        <p style="margin-bottom: 0px;">* With exception for commercial buildings</p>
+                    </div>
+                </div>		
+
+            
+            </div>
+                                        
+        </div>
+
+        <div class="product-line card card-default" style="display: none;">
+            <div class="card-heading card-heading-transparent">
+                <h3><span style="color:rgb(10, 101, 160); font-weight:bolder">STEP 3 |</span> Select Product Line</h3>
+                <p style="margin-bottom: 0px;">* Excluding tax and offers (if applicable)</p>
+                <p style="color: rgb(170, 69, 69); display: none; margin-bottom: 0px;" id="warning">Complete Step 2 to Estimate Price</p> 
+            </div>
+
+            <div class="card-block">
+                <div class='radio-btns row'>
+                    
+                    <div class="col-4" style="display:flex; justify-content: center;">
+                        <label class="standard radio">
+                            <input type="radio" name="product-line" id="standard">
+                            <i></i> STANDARD ✭
+                        </label>
+                    </div>
+                    <div class="col-4" style="display:flex; justify-content: center;">
+                        <label class="premium radio">
+                            <input type="radio" name="product-line" id="premium">
+                            <i></i> PREMIUM ✭✭
+                        </label>
+                    </div>
+                    <div class="col-4" style="display:flex; justify-content: center;">
+                        <label class="excelium radio">
+                            <input type="radio" name="product-line" id="excelium">
+                            <i></i> EXCELIUM ✭✭✭
+                        </label>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="final-pricing-display card card-default" style="display: none;">
+            <div class="card-heading card-heading-transparent">
+                <h3><span style="color:rgb(10, 101, 160); font-weight:bolder">STEP 4 |</span> Estimated Pricing</h3>
+                <p style="margin-bottom: 0px;">* Excluding tax and offers (if applicable)</p>
+                <p style="color: rgb(170, 69, 69); display: none; margin-bottom: 0px;" id="warning">Complete Step 2 to Estimate Price</p> 
+            </div>
+
+            <div class="card-block">
+
+                <div class="pricing-display row mega-price-table" style="margin: 20px">
+                    <div id="elevator-unit-price" class="col-md-3 col-sm-6 block">
+                        <div class="pricing">
+                            <div class="pricing-head">
+                                <h3>Unit Price</h3>
+                                <small>for Product Line</small>
+                            </div>
+                            <h4>
+                                <input type="text" class="form-control" style="background: none; text-align:center; border: none; font-size:x-large" readonly>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div id="elevator-total-price" class="col-md-3 col-sm-6 block">
+                        <div class="pricing">
+                            <div class="pricing-head">
+                                <h3>Elevator Cost</h3>					
+                                <small>Based on no. of Elevator Required</small>
+                            </div>
+                            <h4>
+                                <input type="text" class="form-control" style="background: none; text-align:center; border: none; font-size:x-large" readonly>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div  id="installation-fees"  class="col-md-3 col-sm-6 block">
+                        <div class="pricing">
+
+                            <div class="pricing-head">
+                                <h3>Installation Fee</h3>
+                                <small>Percent Elevator Cost</small>
+                            </div>
+                            <h4>
+                                <input type="text" class="form-control" style="background: none; text-align:center; border: none; font-size:x-large" readonly>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div id="final-price" class="col-md-3 col-sm-6 block">
+                        <div class="pricing">
+                            <div class="pricing-head">
+                                <h3>Total Cost</h3>
+                                <small>Elevator plus Installation Fee</small>					
+                            </div>
+                            <h4>
+                                <input type="text" class="form-control" style="background: none; text-align:center; border: none; font-size:x-large" readonly>
+                            </h4>
+                        </div>
+                    </div>
+                    
+                </div>
+
+    
+            </div>
+        </div>
+        
+    </form>
+</div>
+</section>
+<!-- /FORM -->
+
+<%= render "shared/footer" %>
