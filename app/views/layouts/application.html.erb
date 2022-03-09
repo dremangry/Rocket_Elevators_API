@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= tag :meta, name: :psj, action: action_name, controller: controller_name %>
+
     <%# TODO: 
     <%# <%= link_to "", image_tag "icon.png", type: "image/png", rel:"shortcut icon" %> 
     <%# <link rel="shortcut icon" type="image/png" href="assets/images/rocketElevators/icon.png"> %>
@@ -12,7 +14,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= javascript_include_tag 'jquery/jquery-3.3.1.min.js', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_include_tag 'jquery-3.3.1.min.js', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_include_tag 'jquery/jquery-3.3.1.min.js', 'data-turbolinks-track': 'reload' %> 
     <%= javascript_include_tag "bootstrap/js/bootstrap.min" %>
 
     <!-- REVOLUTION SLIDER -->
@@ -48,9 +51,14 @@
 
   </head>
 
+
   <body class="smoothscroll enable-animation">
     <div class="wrapper">
     <%= yield %>
+    </div>
+    <div id="testme">
+      <%= p "hello from application.html.erb" %>
+    </div>
   </body>
 
 </html>

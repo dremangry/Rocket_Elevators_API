@@ -42,7 +42,8 @@ window.width = jQuery(window).width();
 window.height = jQuery(window).height();
 // console.log("inside scripts.js");
 
-// var plugin_path = "assets/plugins/";
+var plugin_path = "assets/plugins/";
+// var plugin_path = "../plugins/";
 
 /* Init */
 jQuery(window).ready(function () {
