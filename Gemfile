@@ -9,6 +9,12 @@ gem 'rails', '~> 5.2.6'
 # gem 'sqlite3'
 gem 'mysql2', '~> 0.5.3'
 gem 'jquery-rails'
+gem 'bootstrap-social-rails'
+gem 'bootstrap', '~> 4.3.1'
+gem 'font-awesome-sass', '~> 4.4.0'
+gem 'bootstrap_form', '~> 4.2'
+gem 'sprockets-rails', '2.3.3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
