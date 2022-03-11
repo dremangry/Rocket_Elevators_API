@@ -1,16 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the database system within the Genesis Project. We made the website dynamic instead of static, added a backdoor office, added a way to sign in as a User, created a table of Employees who have Admin permissions and added a way to collect data done from Quote forms and accessible from the back office. We also created some random users to test the admin permissions.
 
-Things you may want to cover:
+We used:
 
 * Ruby version "2.7.5"
 
 * Rails version "5.2.6"
-
-* Configuration
-  
 
 * Database creation
   database.yml -> Make sure rocketelevatorsfoobar is seleceted as your database.
@@ -20,12 +16,5 @@ Things you may want to cover:
 * Database initialization
   $ rake db:create
   $ rake db:migrate
-  
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
