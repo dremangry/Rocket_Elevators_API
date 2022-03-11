@@ -14,14 +14,44 @@
 </section>
 <!-- /PAGE HEADER BREADCRUMS -->
 
+<div class="card-group">
+  <div class="card">
+    <%= image_tag "rocketElevators/comPortfolio4.jpeg", class:"card-img-top", alt:"Card image cap"  %>
+    <div class="card-body">
+      <h5 class="card-title">Commercial Buildings</h5>
+      <p class="card-text">We have all the tools necessary to lift up your commercial building no matter how big it is!</p>
+      <p class="card-text"><small class="text-muted">Apple Headquarters</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <%= image_tag "rocketElevators/comPortfolio5.jpeg", class:"card-img-top", alt:"Card image cap"  %>
+    <div class="card-body">
+      <h5 class="card-title">Skyscrapers</h5>
+      <p class="card-text">We can work with any kind of building from small towers to skyscrapers. We do it all.</p>
+      <p class="card-text"><small class="text-muted">IBM Offices</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <%= image_tag "rocketElevators/comPortfolio7.jpeg", class:"card-img-top", alt:"Card Image cap" %>
+    <div class="card-body">
+      <h5 class="card-title">All around the world!</h5>
+      <p class="card-text">No matter where we are we can get to you. We have ways of making your dreams come true no matter where you live</p>
+      <p class="card-text"><small class="text-muted">Taj-Mahal</small></p>
+    </div>
+  </div>
+</div>
+
+<%# <section>
+
 <!-- LAYER SLIDER -->
-<section>
+<%#  <section>
     <div class="container slider">
         <div class="layerslider" style="height:500px;">
 
             <div class="ls-slide" data-ls="slidedelay:4000;transition2d:21,105;timeshift:-1000;">
                 <!-- background -->
-                <img src="assets/images/rocketElevators/comPortfolio4.jpeg" class="ls-bg" alt="Slide background"/>
+
+                <img src="assets/images/rocketElevators/comPortfolio4.jpeg" class="ls-bg" alt="Slide background"/>                
                 <img class="ls-l" data-ls="
                     offsetxin:0;
                     durationin:1500;
@@ -189,8 +219,8 @@
         </script>
 
     </div>
-</section>
-<!-- /LAYER SLIDER -->
+</section> 
+<!-- /LAYER SLIDER --> %>
 
 
 <!-- BUSINESS MODEL -->
@@ -199,41 +229,35 @@
     <div class="container">
         <h2 class="m-0">What we deliver since <span style="color: rgb(170, 69, 69)">1976</span>...</h2>
         <p>
-            ... and why we are
-            <span class="word-rotator" data-delay="2000">
-                <span class="items" style="color: rgb(170, 69, 69); text-align: center">
-                    <span>trusted</span>
-                    <span>loved</span>
-                </span>
-            </span>
+            ... and why we are trusted
             by our clients.
         </p>
 
         <div class="row">
             <div class="col-md-3 col-6">
                 <div class="text-center">
-                    <i class="ico-light ico-lg ico-rounded ico-hover et-tools-2"></i>
+                    <i class="ico-light ico-lg ico-rounded ico-hover fa fa-coffee"></i>
                     <h4>24/7 Customer Support</h4>
                     <p>We are one phone call away. We are always ready to answer any questions, provide maintainance, repair services, and many more! </p>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="text-center">
-                    <i class="ico-light ico-lg ico-rounded ico-hover et-lightbulb"></i>
+                    <i class="ico-light ico-lg ico-rounded ico-hover fa fa-database"></i>
                     <h4>Innovative Design</h4>
                     <p>Our team is consisted of top-tier designers and architects ready to provide creative, innovative, and unique solutions.</p>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="text-center">
-                    <i class="ico-light ico-lg ico-rounded ico-hover et-puzzle"></i>
+                    <i class="ico-light ico-lg ico-rounded ico-hover fa fa-puzzle-piece"></i>
                     <h4>Custom Features</h4>
                     <p>Every building deserves a special touch. We work closely with our clients to deliver what is best for them.</p>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="text-center">
-                    <i class="ico-light ico-lg ico-rounded ico-hover et-shield"></i>
+                    <i class="ico-light ico-lg ico-rounded ico-hover fa fa-shield"></i>
                     <h4>Enhanced Safety</h4>
                     <p>Your safety is our priority, and we take it to the next level. Our highly-experienced engineers have developed state-of-the-art safety features to our elevators.</p>
                 </div>
@@ -246,7 +270,7 @@
 
 
 <!-- PARALLAX -->
-<section class="parallax parallax-2" style="background-image: url('assets/images/rocketElevators/homeSlider1.jpeg');">
+<section class="parallax parallax-2" style="background-image: url(<%= asset_path "rocketElevators/homeSlider1.jpeg" %>)">
     <div class="overlay dark-7"></div>
     <div class="container text-center">
         <div class="text-center">
@@ -277,7 +301,7 @@
                             </p>
                             <div class="testimonial">
                                 <figure>
-                                    <img class="rounded" src="assets/images/rocketElevators/testi4.jpg"/>
+                                    <%= image_tag "rocketElevators/testi4.jpg", class:"rounded"%>
                                 </figure>
                                 <cite>                                    
                                     Michele Obama
@@ -294,7 +318,7 @@
                             <p>"The iPhone of all elevators is here. Rocket Elevators' dedication to deliver the best has inspired me to build a new line of Apple products that are as impressive and excellent."</p>
                             <div class="testimonial">
                                 <figure>
-                                    <img class="rounded" src="assets/images/rocketElevators/testi5.png"/>
+                                    <%= image_tag "rocketElevators/testi5.png", class:"rounded"%>
                                 </figure>
                                 <cite>                                    
                                     Steve Job
@@ -310,7 +334,8 @@
                             <p>"Rocket Elevators' products are the most robust elevators. Even my dear old friend Magneto can't bend it! I have installed multiple elevators at Xavier Institute for Gifted Youngster. It is just incredible!" </p>
                             <div class="testimonial">
                                 <figure>
-                                    <img class="rounded" src="assets/images/rocketElevators/testi6.jpg"/>
+                                    <%= image_tag "rocketElevators/testi6.jpg", class:"rounded"%>
+                                    <%# img class="rounded" src="assets/images/rocketElevators/testi6.jpg"/ %>
                                 </figure>
                                 <cite>                                    
                                     Charles Francis Xavier
