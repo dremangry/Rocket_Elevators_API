@@ -1,65 +1,104 @@
 <!-- TOP NAVIGATION -->
 <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+    <% if user_signed_in? %>
+        <section class="page-header page-header-xs parallax parallax-2" style="background-color: #0A65A0; padding-top: 5px; padding-bottom: 5px;">
+            <div class="container">
+                <h1 class="float-right" style="text-shadow:rgb(0 0 0 / 30%) 3px 3px 3px;"><strong>Welcome! <%= current_user.first_name %> <%= current_user.last_name %> </strong></h1>
+            </div>
+        </section>
+    <% end %>
     <header id="topNav">
         <div class="container">
-
+    
             <!-- Mobile Menu Button -->
             <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
                 <i class="fa fa-bars"></i>
             </button>
 
             <!-- Logo -->
-            <a class="logo float-left scrollTo" href="#top">
-                <%= image_tag "rocketElevators/rocketLogo.png", alt: "" %>
-
+            <%# <a class="logo float-left scrollTo" href="#top"> %>
+            <a>
+            <%# <%= link_to "", root_path(anchor: "top") %> 
+            <%= link_to image_tag("rocketElevators/rocketLogo.png"), root_path, class:"logo float-left scrollTo" %>
+            <%# <%= image_tag "rocketElevators/rocketLogo.png", alt: "" %> 
             </a>
+            <%# </a> %>
+            
             <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
                 <nav class="nav-main">
-
                     <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
                         <li class="active">
-                            <a id="home-nav" class="scrollTo" href="#top">
+                            <%= link_to "HOME", root_path(anchor: 'top')%>
+                            <%# <a id="home-nav" class="scrollTo" href="#top">
                                 HOME
-                            </a>
+                            </a> %>
                         </li>
                         <li class="dropdown">
-                            <a id="services-nav" href="#services" class="dropdown-toggle">
+                            <%= link_to "SERVICES", root_path(anchor: 'services'), class: "dropdown-toggle"%>
+<%# 
+                            <a id="services-nav" href="/home#services" class="dropdown-toggle">
                                 SERVICES
-                            </a>
+                            </a> %>
                             <ul class="dropdown-menu">
                                 <li class="dropdown">
-                                    <a id="residential-nav" href="residential.html">RESIDENTIAL</a>
+                                    <%= link_to "RESIDENTIAL", residential_path %>
+                                    <%# <a id="residential-nav" href="/residential">RESIDENTIAL</a> %>
                                 </li>
                                 <li class="dropdown">
-                                    <a id="commercial-nav" href="commercial.html">COMMERCIAL</a>
+                                    <%= link_to "COMMERCIAL", commercial_path %>
+                                    <%# <a id="commercial-nav" href="/commercial">COMMERCIAL</a> %>
+                                </li>
+                                <li class="dropdown">
+                                     <%= link_to "PORTFOLIO", root_path(anchor: 'portfolio') %>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a id="portfolio-nav" href="#portfolio">
-                                PORTFOLIO
-                            </a>
-                        </li>
-                        <li>
-                            <a id="news-nav" href="#news">
+                            <%# <a id="news-nav" href="#news">
                                 NEWS
-                            </a>
+                            </a> %>
+                            <%= link_to "NEWS", root_path(anchor: 'news') %>
+
                         </li>
                         <li>
-                            <a id="clients-nav" href="#clients">
+                            <%# <a id="clients-nav" href="#clients">
                                 CLIENTS
-                            </a>
+                            </a> %>
+                            <%= link_to "CLIENTS", root_path(anchor: 'clients') %>
+
                         </li>
                         <li>
-                            <a id="quote-nav" href="quote.html">
-                                REQUEST QUOTE
-                            </a>
+                            <%# <a id="quote-nav" href="/quotes">
+                                QUOTE
+                            </a> %>
+                            <%= link_to "QUOTE", quotes_path %>
                         </li>
+
                         <li>
-                            <a id="contact-nav" href="#contact">
+                            <%# <a id="contact-nav" href="#contact">
                                 CONTACT
-                            </a>
+                            </a> %>
+                            <%= link_to "CONTACT", root_path(anchor: 'contact') %>
+
                         </li>
+                        
+                        <% if current_user %>
+                            <li>
+                                <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %>
+                            </li>
+                            <li>
+                            <% if Employee.where(user_id: current_user.id).exists? %>
+                                <%= link_to "ADMIN", rails_admin_path %>
+                            <% end %>
+                            </li>
+                        <% else %>
+                            <li>
+                                <%= link_to "SIGN UP", new_user_registration_path %>
+                            </li>
+                            <li>
+                                <%= link_to "SIGN IN", new_user_session_path %>
+                            </li>
+                        <% end %>
                     </ul>
 
                 </nav>

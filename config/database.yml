@@ -1,18 +1,18 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: root
-  socket: /var/run/mysqld/mysqld.sock
+    adapter: mysql2
+    encoding: utf8
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    username: root
+    password:
+    # socket: /var/run/mysqld/mysqld.sock
 
 development:
-  <<: *default
-  database: reapp_development
+    <<: *default
+    database: rocketelevatorsfoobar
 
 test:
-  <<: *default
-  database: reapp_test
+    <<: *default
+    database: reapp_test
 
 production:
     <<: *default

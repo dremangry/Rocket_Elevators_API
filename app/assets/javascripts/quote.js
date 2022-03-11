@@ -1,8 +1,9 @@
 $(document).ready(function () {
-    ("use strict");
+    "use strict";
 
-    let buildingType_select = document.getElementById("building-type");
-    // let buildingType = $("#building-type").text();
+    let buildingType_select = document.getElementById("building_type");
+    // console.log(buildingType_select.value);
+    let selectedBuildingType = document.getElementById("submit_building_type");
     let buildingType =
         buildingType_select.options[buildingType_select.selectedIndex].value;
     let estimateNumElv_div = document.querySelector(".estimate-num-elv");
@@ -164,18 +165,11 @@ $(document).ready(function () {
         if (buildingType == "commercial") {
             calculatedElv =
                 numElevators_input.value == 0 ? 1 : numElevators_input.value;
-            // $("#number-of-elevators").val() == 0
-            //     ? 1
-            //     : $("#number-of-elevators").val();
-            // $("#elevator-amount").attr("input")
-            // $("#elevator-amount").val() = parseInt(calculatedElv);
-            displayCalcElv_input.value = parseInt(calculatedElv);
+            displayCalcElv_input.value = parseInt(numElevators_input.value);
         } else if (buildingType == "residential") {
             calculatedElv = calcResElv(
                 parseInt(numFloors_input.value),
                 parseInt(numApt_input.value)
-                // parseInt($("#number-of-floors").val()),
-                // parseInt($("#number-of-apartments").val())
             );
             displayCalcElv_input.value = calculatedElv;
         } else {
@@ -183,9 +177,6 @@ $(document).ready(function () {
                 parseInt(numFloors_input.value),
                 parseInt(numBasements_input.value),
                 parseInt(maxOcc_input.value)
-                // parseInt($("#number-of-floors").val()),
-                // parseInt($("#number-of-basements").val()),
-                // parseInt($("#maximum-occupancy").val())
             );
             displayCalcElv_input.value = calculatedElv;
         }
@@ -197,29 +188,18 @@ $(document).ready(function () {
         let subtotal = unitPrice * numElv;
         let totalInstallFee = calcInstallFee(subtotal, installPercentFee);
         let totalPrice = subtotal + totalInstallFee;
-
-        console.log(`"inside displayPricing: ${unitPrice}"`);
-        console.log(`"inside installPercentFee: ${installPercentFee}"`);
-        console.log(`"inside subtotal: ${subtotal}"`);
-        console.log(`"inside totalInstallFee : ${totalInstallFee}"`);
-        console.log(`"inside totalPrice : ${totalPrice}"`);
-
-        // $("elevator-unit-price").attr("value", formatter.format(unitPrice));
         displayUnitPrice_input.setAttribute(
             "value",
             formatter.format(unitPrice)
         );
-        // $("elevator-total-price").attr("value", formatter.format(subtotal));
         displayElvTotalPrice_input.setAttribute(
             "value",
             formatter.format(subtotal)
         );
-        // $("installation-fees").attr("value", formatter.format(totalInstallFee));
         displayInstallFee_input.setAttribute(
             "value",
             formatter.format(totalInstallFee)
         );
-        // $("final-price").attr("value", formatter.format(totalPrice));
         displayEstTotalCost_input.setAttribute(
             "value",
             formatter.format(totalPrice)
@@ -271,6 +251,13 @@ $(document).ready(function () {
         if (buildingType == "---Select---") {
             resetForm();
         } else {
+            // s.charAt(0).toUpperCase() + s.slice(1)
+            selectedBuildingType.setAttribute(
+                "value",
+                `${
+                    buildingType.charAt(0).toUpperCase() + buildingType.slice(1)
+                }`
+            );
             displayBuildingFields(buildingType);
             estimateNumElv_div.addEventListener("change", function () {
                 if (!allBuildingFieldsCompleted(buildingType)) {

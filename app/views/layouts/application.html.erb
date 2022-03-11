@@ -19,13 +19,14 @@
     <%= javascript_include_tag "bootstrap/js/bootstrap.min" %>
 
     <!-- REVOLUTION SLIDER -->
-    <%= javascript_include_tag 'slider.revolution/js/jquery.themepunch.revolution.min.js', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'slider.revolution/js/jquery.themepunch.tools.min.js', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_include_tag 'slider.revolution/js/jquery.themepunch.revolution.min.js', 'data-turbolinks-track': 'reload' %> 
+    <%= javascript_include_tag 'slider.revolution/js/jquery.themepunch.tools.min.js', 'data-turbolinks-track': 'reload' %> 
     <%= javascript_include_tag 'view/demo.revolution_slider.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'owl-carousel/owl.carousel.js', 'data-turbolinks-track': 'reload' %>
 
     <!-- PAGELEVEL SCRIPTS -->
     <%= javascript_include_tag 'quote', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'modal', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'contact', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'scripts', 'data-turbolinks-track': 'reload' %>
 
@@ -54,8 +55,23 @@
 
   <body class="smoothscroll enable-animation">
     <div class="wrapper">
-    <%= yield %>
+      <% if notice %>
+        <div id="notice" class="alert alert-success" role="alert" style="margin-bottom: 0;">
+            <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+         <div id="alert" class="alert alert-danger" role="alert" style="margin-bottom: 0;">
+            <%= alert %>
+        </div>
+      <% end %>
+      
+      <%= render "shared/modal"%>
+
+      <%= yield %>
+
     </div>
+
   </body>
 
 </html>
