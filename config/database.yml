@@ -8,7 +8,7 @@ default: &default
 
 development:
     <<: *default
-    database: rocketElevatorsFooBar
+    database: rocketelevatorsfoobar
 
 test:
     <<: *default
