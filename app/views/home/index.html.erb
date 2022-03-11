@@ -14,7 +14,7 @@
                 <%= image_tag "rocketElevators/homeSlider1.jpeg", width: "1375", height:"650", alt:"First Slide"%>
     
                 <div class="carousel-caption d-none d-md-block" style="text-align: left; padding: 5px 5px 5px 5px; top:500px">
-                    <a class="btn btn-outline-primary btn-lg" href="quote.html">REQUEST QUOTE <i class="fa fa-angle-right"></i></a> 
+                    <%= link_to 'REQUEST QUOTE', quotes_path, class:"btn btn-outline-primary btn-lg" %>
                     <a class="btn btn-primary btn-lg" href="#services">OUR SERVICES &nbsp; <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <%= image_tag "rocketElevators/homeSliderResidential.jpeg", width: "1375", height:"650" %>
                 
                 <div class="carousel-caption d-none d-md-block" style="text-align: left; padding: 5px 5px 5px 5px; top:500px">
-                    <a class="btn btn-outline-primary btn-lg" href="residential.html">SEE DETAILS &nbsp; <i class="fa fa-angle-right"></i></a>
+                    <%= link_to "SEE DETAILS", residential_path, class: "btn btn-outline-primary btn-lg"%>
                 </div>
 
             </div>  
@@ -42,7 +42,7 @@
                 <%= image_tag "rocketElevators/comPortfolio5.jpeg", width: "1375", height:"650" %>
                 
                 <div class="carousel-caption d-none d-md-block" style="text-align: left; padding: 5px 5px 5px 5px; top:500px">
-                    <a class="btn btn-outline-primary btn-lg" href="commercial.html">SEE DETAILS &nbsp; <i class="fa fa-angle-right"></i></a>
+                    <%= link_to "SEE DETAILS", commercial_path, class: "btn btn-outline-primary btn-lg"%>
                 </div>
 
             </div>  
@@ -61,190 +61,6 @@
     
 </div>
 
-
-<!-- SLIDER -->
-<div class="slider fullwidthbanner-container roundedcorners">
-    <div class="fullwidthbanner" data-height="600" data-shadow="0" data-navigationStyle="preview2">
-        <ul class="hide">
-            <!-- SLIDE 1: SERVICES  -->
-            <li data-transition="parallaxtotop" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" data-title="Rocket Elevators">
-
-                <%= image_tag "rocketElevators/homeSlider1.jpeg", alt:"cover image", :data => {:bgposition => 'center top', :bgfit => 'cover', :bgrepeat => 'no-repeat'}%>
-
-                <div class="overlay dark-7"></div>
-                
-                <div class="tp-caption font-roboto skewfromleft tp-resizeme"
-                    data-x="50"
-                    data-y="100" 
-                    data-speed="500"
-                    data-start="1500"
-                    data-easing="Cubic.easeOut"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="0.1"
-                    data-endelementdelay="0.1"
-                    data-endspeed="500"
-                    style="z-index: 2; color:#fff; font-size:65px; line-height:85px; font-weight:bold; letter-spacing:0; text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px;
-                    ;">
-                        Elevate Safety, Speed, & Style <br/>
-                        with Rocket Elevators.
-                </div>
-
-                <div class="tp-caption skewfromrightshort tp-resizeme"
-                    data-x="50"
-                    data-y="300" 
-                    data-speed="500"
-                    data-start="1000"
-                    data-easing="easeInCirc"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="0.1"
-                    data-endelementdelay="0.1"
-                    data-endspeed="500"
-                    style="z-index: 3; font-size:20px; color:#fff; font-weight:300; text-shadow:none;">
-                        If you dream of having the best elevators, <br />
-                        our team is the best in this field.
-                </div>
-
-                <div class="tp-caption sfb tp-resizeme"
-                    data-x="50"
-                    data-y="410" 
-                    data-speed="500"
-                    data-start="1500"
-                    data-easing="Power3.easeIn"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="1"
-                    data-endelementdelay="0.1"
-                    data-endspeed="500"
-                    style="z-index: 4; max-width: auto;">
-                        <a class="btn btn-primary btn-lg" href="#services">OUR SERVICES &nbsp; <i class="fa fa-angle-right"></i></a>
-                </div>
-
-                <div class="tp-caption sfb tp-resizeme"
-                    data-x="250"
-                    data-y="410" 
-                    data-speed="500"
-                    data-start="1500"
-                    data-easing="Power3.easeInOut"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="0.1"
-                    data-endelementdelay="0.1"
-                    data-endspeed="500"
-                    style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
-                        <a class="btn btn-outline-primary btn-lg" href="quote.html">REQUEST QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
-                </div>
-            </li>
-            <!-- SLIDE 2: RESIDENTIAL -->
-            <li data-transition="parallaxtotop" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" data-title="Residential Services">
-
-                <%= image_tag "rocketElevators/homeSliderResidential.jpeg", alt:"cover image", :data => {:bgposition => 'center top', :bgfit => 'cover', :bgrepeat => 'no-repeat'}%>
-
-                <div class="overlay dark-6"></div>
-
-                <div class="tp-caption font-roboto skewfromleft tp-resizeme"
-                    data-x="50"
-                    data-y="100" 
-                    data-speed="500"
-                    data-start="1500"
-                    data-easing="Cubic.easeOut"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="0.1"
-                    data-endelementdelay="0.1"
-                    data-endspeed="500"
-                    style="z-index: 2; color:#fff; font-size:65px; line-height:85px; font-weight:bold; letter-spacing:0; text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px">
-                        Residential Building <br /> 
-                        Services
-                </div>
-
-                <div class="tp-caption skewfromrightshort tp-resizeme"
-                    data-x="50"
-                    data-y="300" 
-                    data-speed="500"
-                    data-start="1000"
-                    data-easing="easeInCirc"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="0.1"
-                    data-endelementdelay="0.1"
-                    data-endspeed="500"
-                    style="z-index: 3; font-size:20px; color:#fff; font-weight:300; text-shadow:none;">
-                        Check out our <b><em>residential building</em></b> services promotion!
-                </div>
-
-                <div class="tp-caption sfb tp-resizeme"
-                    data-x="50"
-                    data-y="370" 
-                    data-speed="500"
-                    data-start="1500"
-                    data-easing="Power3.easeIn"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="1"
-                    data-endelementdelay="0.1"
-                    data-endspeed="500"
-                    style="z-index: 4; max-width: auto;">
-                        <a class="btn btn-outline-primary btn-lg" href="residential.html">SEE DETAILS &nbsp; <i class="fa fa-angle-right"></i></a>
-                </div>
-            </li>
-            <!-- SLIDE 3: CORPORATE -->
-            <li data-transition="parallaxtotop" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" data-title="Commercial Services">
-                <%= image_tag "rocketElevators/homeSliderCorporate2.jpeg", alt:"cover image", :data => {:bgposition => 'center top', :bgfit => 'cover', :bgrepeat => 'no-repeat'}%>
-
-                <div class="overlay dark-6"></div>
-                <div class="tp-caption font-roboto skewfromleft tp-resizeme"
-                    data-x="50"
-                    data-y="100" 
-                    data-speed="500"
-                    data-start="1500"
-                    data-easing="Cubic.easeOut"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="0.1"
-                    data-endelementdelay="0.1"
-                    data-endspeed="500"
-                    style="z-index: 2; color:#fff; font-size:65px; line-height:85px; font-weight:bold; letter-spacing:0; text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px;">
-                        Commercial Building <br />
-                        Services
-                </div>
-
-                <div class="tp-caption skewfromrightshort tp-resizeme"
-                    data-x="50"
-                    data-y="300" 
-                    data-speed="500"
-                    data-start="1000"
-                    data-easing="easeInCirc"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="0.1"
-                    data-endelementdelay="0.1"
-                    data-endspeed="500"
-                    style="z-index: 3; font-size:20px; color:#fff; font-weight:300; text-shadow:none;">
-                        Check out our <b><em>commercial building</em></b> services promotion!
-                </div>
-
-                <div class="tp-caption sfb tp-resizeme"
-                    data-x="50"
-                    data-y="370" 
-                    data-speed="500"
-                    data-start="1500"
-                    data-easing="Power3.easeIn"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="1"
-                    data-endelementdelay="0.1"
-                    data-endspeed="500"
-                    style="z-index: 4; max-width: auto;">
-                     <a class="btn btn-outline-primary btn-lg" href="commercial.html">SEE DETAILS &nbsp; <i class="fa fa-angle-right"></i></a>
-                </div>
-            </li>
-        </ul>         
-    </div>
-</div>
-<!-- / SLIDER -->
-
 <hr class="m-0" />
 
 <!-- SERVICES -->
@@ -259,7 +75,7 @@
                 <h3 class="mt-10">Awards & Portfolio</h3>
                 <p>Our commitment to deliver the best <br/> 
                     products & services is nationally & internationally recognized.</p>
-                <a href="#portfolio" class="btn btn-primary">SEE DETAILS &nbsp;<i class="fa fa-angle-right"></i></a>
+                <%= link_to "SEE DETAILS", root_path(anchor: "portfolio"), class: "btn btn-primary"%>
             </div>
             <div class="col-sm-4">
                 <%= image_tag "rocketElevators/residential.jpeg", class: "img-fluid"%>
@@ -269,7 +85,7 @@
                     residential buildings, including low-/ <br/> 
                     high-rise buildings, condos, & more!
                 </p>
-                <a href="residential.html" class="btn btn-primary">SEE DETAILS &nbsp;<i class="fa fa-angle-right"></i></a>
+                <%= link_to "SEE DETAILS", residential_path, class: "btn btn-primary"%>
             </div>
             <div class="col-sm-4">
                 <%= image_tag "rocketElevators/corporate.jpeg", class: "img-fluid"%>
@@ -279,7 +95,9 @@
                     residential buildings, including hotels, <br/> 
                     corporate towers, hospitals & more!
                 </p>
-                <a href="commercial.html" class="btn btn-primary">SEE DETAILS &nbsp;<i class="fa fa-angle-right"></i></a>
+                <%= link_to "SEE DETAILS", commercial_path, class: "btn btn-primary" %>
+<%# 
+                <a href="commercial.html" class="btn btn-primary">SEE DETAILS &nbsp;<i class="fa fa-angle-right"></i></a> %>
             </div>
         </div>
     </div>
@@ -294,9 +112,9 @@
     <div class="container">
         <div class="text-center">
             <h2 class="fs-40 fw-300"><strong>Elevating Innovation, Safety, & Style since 1976</strong></h2>
-            <a class="btn btn-outline-primary btn-lg" href="quote.html">REQUEST QUOTE <i class="fa fa-angle-right"></i></a> 
+            <%= link_to 'REQUEST QUOTE', quotes_path, class:"btn btn-outline-primary btn-lg" %>
             &nbsp; OR &nbsp; 
-            <a class="btn btn-outline-danger btn-lg" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
+            <a class="btn btn-outline-danger btn-lg" href="#contact">CONTACT US</a>
         </div>
     </div>
 </section>
@@ -335,7 +153,7 @@
                         <div class="item-box-desc">
                             <h3>Fastest Elevator</h3>
                             <ul class="list-inline categories m-0">
-                                <li><a href="commercial.html">Commercial</a></li>
+                                <li><%= link_to "Commercial", commercial_path %></li>
                                 <li>Elevate-U Tower</li>
                             </ul>
                         </div>
@@ -352,7 +170,7 @@
                         <div class="item-box-desc">
                             <h3>1500lb Capacity Elevator</h3>
                             <ul class="list-inline categories m-0">
-                                <li><a href="commercial.html">Commercial</a></li>
+                                <li><%= link_to "Commercial", commercial_path %></li>
                                 <li>The Hulk Warehouse</li>
                             </ul>
                         </div>
@@ -369,7 +187,7 @@
                         <div class="item-box-desc">
                             <h3>Smart Elevators</h3>
                             <ul class="list-inline categories m-0">
-                                <li><a href="commercial.html">Commercial</a></li>
+                                <li><%= link_to "Commercial", commercial_path %></li>
                                 <li>Apple Inc.</li>
                             </ul>
                         </div>
@@ -387,7 +205,7 @@
                         <div class="item-box-desc">
                             <h3>Futuristic Design</h3>
                             <ul class="list-inline categories m-0">
-                                <li><a href="commercial.html">Commercial</a></li>
+                                <li><%= link_to "Commercial", commercial_path %></li>
                                 <li>NASA HQ</li>
                             </ul>
                         </div>
@@ -480,7 +298,7 @@
                         <div class="item-box-desc">
                             <h3>Secure Elevators</h3>
                             <ul class="list-inline categories m-0">
-                                <li><a href="residential.html">Residential</a></li>
+                                <li><%= link_to "Residential", residential_path %></li>
                                 <li>Hope LTC Center</li>
                             </ul>
                         </div>
@@ -497,7 +315,7 @@
                         <div class="item-box-desc">
                             <h3>Minimalistic Design</h3>
                             <ul class="list-inline categories m-0">
-                                <li><a href="residential.html">Residential</a></li>
+                                <li><%= link_to "Residential", residential_path %></li>
                                 <li>Resident Nine-Nine</li>
                             </ul>
                         </div>
@@ -531,7 +349,7 @@
                         <div class="item-box-desc">
                             <h3>Custom Home Elevators</h3>
                             <ul class="list-inline categories m-0">
-                                <li><a href="#">Residential</a></li>
+                                <li><%= link_to "Residential", residential_path %></li>
                                 <li><a href="">Silicon Valley</a></li>
                             </ul>
                         </div>

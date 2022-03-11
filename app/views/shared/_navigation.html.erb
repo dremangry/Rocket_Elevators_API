@@ -16,9 +16,13 @@
             </button>
 
             <!-- Logo -->
-            <a class="logo float-left scrollTo" href="#top">
-                <%= image_tag "rocketElevators/rocketLogo.png", alt: "" %>
+            <%# <a class="logo float-left scrollTo" href="#top"> %>
+            <a>
+            <%# <%= link_to "", root_path(anchor: "top") %> 
+            <%= link_to image_tag("rocketElevators/rocketLogo.png"), root_path, class:"logo float-left scrollTo" %>
+            <%# <%= image_tag "rocketElevators/rocketLogo.png", alt: "" %> 
             </a>
+            <%# </a> %>
             
             <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
                 <nav class="nav-main">

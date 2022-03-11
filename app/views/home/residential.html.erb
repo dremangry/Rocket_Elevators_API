@@ -7,10 +7,8 @@
         <h1><strong>RESIDENTIAL SERVICES</strong></h1>
         <!-- breadcrumbs -->
         <ol class="breadcrumb">
-            <li> <%= link_to "HOME", root_path %>
-            </li>
-            <li>
-                <%= link_to "Services", root_path(anchor: 'services') %></li>
+            <li> <%= link_to "HOME", root_path %></li>
+            <li><%= link_to "Services", root_path(anchor: 'services') %></li>
             <li class="active">Residential</p></li>
         </ol>
         <!-- /breadcrumbs -->
@@ -108,8 +106,7 @@
             <p class="font-lato fs-20">
                 * Offer valid until the Febuary 20th, 2022.
             </p>
-            <a href="index.html#contact" class="btn btn-outline-primary btn-lg mt-30">CONTACT US <i class="fa fa-angle-right"></i></a>
-            '
+            <%= link_to "CONTACT US", root_path(anchor: 'contact'), class:"btn btn-outline-primary btn-lg mt-30" %>
         </div>
     </div>
 </section>

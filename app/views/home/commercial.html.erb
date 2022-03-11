@@ -6,8 +6,8 @@
     <div class="container">
         <h1 style="text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px"><strong>COMMERCIAL SERVICES</strong></h1>
         <ol class="breadcrumb">
-            <li><a id="rockets-home" href="index.html">Home</a></li>
-            <li><a href="index.html#services">Services</a></li>
+            <li><%= link_to "HOME", root_path %></li>
+            <li><%= link_to "Services", root_path(anchor: 'services') %></li>
             <li class="active">Commercial</p></li>
         </ol>
     </div>
@@ -41,215 +41,6 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
-<!-- <div class="card-group">
-  <div class="card">
-    <%= image_tag "rocketElevators/comPortfolio4.jpeg", class:"card-img-top", alt:"Card image cap"  %>
-    <div class="card-body">
-      <h5 class="card-title">Commercial Buildings</h5>
-      <p class="card-text">We have all the tools necessary to lift up your commercial building no matter how big it is!</p>
-      <p class="card-text"><small class="text-muted">Apple Headquarters</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <%= image_tag "rocketElevators/comPortfolio5.jpeg", class:"card-img-top", alt:"Card image cap"  %>
-    <div class="card-body">
-      <h5 class="card-title">Skyscrapers</h5>
-      <p class="card-text">We can work with any kind of building from small towers to skyscrapers. We do it all.</p>
-      <p class="card-text"><small class="text-muted">IBM Offices</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <%= image_tag "rocketElevators/comPortfolio7.jpeg", class:"card-img-top", alt:"Card Image cap" %>
-    <div class="card-body">
-      <h5 class="card-title">All around the world!</h5>
-      <p class="card-text">No matter where we are we can get to you. We have ways of making your dreams come true no matter where you live</p>
-      <p class="card-text"><small class="text-muted">Taj-Mahal</small></p>
-    </div>
-  </div>
-</div> -->
-
-<%# <section>
-
-<!-- LAYER SLIDER -->
-<%#  <section>
-    <div class="container slider">
-        <div class="layerslider" style="height:500px;">
-
-            <div class="ls-slide" data-ls="slidedelay:4000;transition2d:21,105;timeshift:-1000;">
-                <!-- background -->
-
-                <img src="assets/images/rocketElevators/comPortfolio4.jpeg" class="ls-bg" alt="Slide background"/>                
-                <img class="ls-l" data-ls="
-                    offsetxin:0;
-                    durationin:1500;
-                    delayin:0000;
-                    easingin:linear;
-                    scalexin:0;
-                    scaleyin:0;
-                    offsetxout:0;
-                    durationout:1500;
-                    showuntil:1;
-                    easingout:linear;
-                    scalexout:2;
-                    scaleyout:2;" 
-                    style="top:20px;left:50%;white-space: nowrap;" src="assets/images/rocketElevators/circle.png" alt="">
-                <img class="ls-l" data-ls="
-                    offsetxin:0;
-                    durationin:1500;
-                    delayin:1000;
-                    easingin:linear;
-                    scalexin:0;
-                    scaleyin:0;
-                    offsetxout:0;
-                    durationout:1500;
-                    showuntil:1;
-                    easingout:linear;
-                    scalexout:2;
-                    scaleyout:2;" 
-                    style="top:20px;left:50%;white-space: nowrap;" src="assets/images/rocketElevators/circle.png" alt="">
-                <p class="ls-l" data-ls="
-                    offsetxin:0;
-                    durationin:2500;
-                    delayin:500;
-                    scalexin:0;
-                    scaleyin:0;
-                    offsetxout:0;
-                    scalexout:0;
-                    scaleyout:0;" 
-                    style="top:100px;left:50%;font-weight: bold; opacity: 1;font-size:150px;color:#fff; text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px; white-space: nowrap;">
-                    85
-                </p>
-                <p class="ls-l" data-ls="
-                    offsetxin:-50;
-                    durationin:2000;
-                    delayin:500;
-                    offsetxout:-50;
-                    durationout:1000;" 
-                    style="top:275px;left:50%;font-weight: bold; background: white; background: #A94545; height:40px; p-right:10px;p-left:10px;font-size:30px;line-height:37px;color:#fff;white-space: nowrap; padding:10px;">
-                    Commercial Buildings
-                </p>
-                <p class="ls-l" data-ls="
-                    offsetxin:50;
-                    delayin:500;
-                    skewxin:-60;
-                    offsetxout:-50;
-                    durationout:1000;
-                    skewxout:-60;" 
-                    style="top:330px;left:50%;font-weight: bold;font-size:30px;color:#fff; background:rgb(10, 101, 160); white-space: nowrap; padding:2px 5px">
-                    accross Canada and the world!
-                </p>
-            </div>
-
-            <div class="ls-slide" data-ls="slidedelay:4000;transition2d:21,105;">
-                <!-- background image -->
-                <img src="assets/images/rocketElevators/comPortfolio5.jpeg" class="ls-bg" alt="Slide background"/>
-                <p class="ls-l" data-ls="
-                    offsetxin:50;
-                    delayin:500;
-                    skewxin:-60;
-                    offsetxout:-50;
-                    durationout:1000;
-                    skewxout:-60;" 
-                    style="top:75%;left:25%;font-weight: bold;font-size:30px;color:#fff; background:rgb(10, 101, 160); white-space: nowrap; padding:2px 5px">
-                    Corporate Towers
-                </p>
-                <p class="ls-l" data-ls="
-                    offsetxin:-50;
-                    durationin:2000;
-                    delayin:500;
-                    offsetxout:-50;
-                    durationout:1000;" 
-                    style="top:84%;left:35%;font-weight: bold; background: white; background: #A94545; height:40px; p-right:10px;p-left:10px;font-size:30px;line-height:37px;color:#fff;white-space: nowrap; padding:5px;">
-                    & Skyscrapers
-                </p>
-            </div>
-
-            <div class="ls-slide" data-ls="slidedelay:4000;transition2d:75,79;">
-                <!-- background image -->
-                <img src="assets/images/rocketElevators/comPortfolio7.jpeg" class="ls-bg" alt="Slide background"/>
-                <p class="ls-l" data-ls="
-                    offsetxin:50;
-                    delayin:500;
-                    skewxin:-60;
-                    offsetxout:-50;
-                    durationout:1000;
-                    skewxout:-60;" 
-                    style="top:75%;left:25%;font-weight: bold;font-size:30px;color:#fff; background:rgb(10, 101, 160); white-space: nowrap; padding:2px 5px">
-                    Hotels &
-                </p>
-                <p class="ls-l" data-ls="
-                    offsetxin:-50;
-                    durationin:2000;
-                    delayin:500;
-                    offsetxout:-50;
-                    durationout:1000;" 
-                    style="top:84%;left:35%;font-weight: bold; background: white; background: #A94545; height:40px; p-right:10px;p-left:10px;font-size:30px;line-height:37px;color:#fff;white-space: nowrap; padding:5px;">
-                    Resorts
-                </p>
-            </div>
-
-            <div class="ls-slide" data-ls="slidedelay:4000;transition2d:75,79;">
-                <!-- background image -->
-                <img src="assets/images/rocketElevators/comPortfolio10.jpg" class="ls-bg" alt="Slide background"/>
-                <p class="ls-l" data-ls="
-                    offsetxin:50;
-                    delayin:500;
-                    skewxin:-60;
-                    offsetxout:-50;
-                    durationout:1000;
-                    skewxout:-60;" 
-                    style="top:75%;left:25%;font-weight: bold;font-size:30px;color:#fff; background:rgb(10, 101, 160); white-space: nowrap; padding:2px 5px">
-                    Acessibility
-                </p>
-                <p class="ls-l" data-ls="
-                    offsetxin:-50;
-                    durationin:2000;
-                    delayin:500;
-                    offsetxout:-50;
-                    durationout:1000;" 
-                    style="top:84%;left:35%;font-weight: bold; background: white; background: #A94545; height:40px; p-right:10px;p-left:10px;font-size:30px;line-height:37px;color:#fff;white-space: nowrap; padding:5px;">
-                    Elevators
-                </p>
-            </div>
-
-            <div class="ls-slide" data-ls="slidedelay:4000;transition2d:75,79;">
-                <!-- background image -->
-                <img src="assets/images/rocketElevators/comPortfolio9.jpeg" class="ls-bg" alt="Slide background"/>
-                <p class="ls-l" data-ls="
-                    offsetxin:50;
-                    delayin:500;
-                    skewxin:-60;
-                    offsetxout:-50;
-                    durationout:1000;
-                    skewxout:-60;" 
-                    style="top:75%;left:25%;font-weight: bold;font-size:30px;color:#fff; background:rgb(10, 101, 160); white-space: nowrap; padding:2px 5px">
-                    Hospitals & 
-                </p>
-                <p class="ls-l" data-ls="
-                    offsetxin:-50;
-                    durationin:2000;
-                    delayin:500;
-                    offsetxout:-50;
-                    durationout:1000;" 
-                    style="top:84%;left:35%;font-weight: bold; background: white; background: #A94545; height:40px; p-right:10px;p-left:10px;font-size:30px;line-height:37px;color:#fff;white-space: nowrap; padding:5px;">
-                    Clinics
-                </p>
-            </div>
-
-        <script>
-            var layer_options = {
-                type: 					'responsive',
-                skin: 					'outline',
-                skinsPath: 				'assets/plugins/slider.layerslider/skins/',
-                thumbnailNavigation: 	false
-            }
-        </script>
-
-    </div>
-</section> 
-<!-- /LAYER SLIDER --> %>
-
 
 <!-- BUSINESS MODEL -->
 <section id="business-model">
@@ -306,7 +97,7 @@
             <p class="font-lato fs-20">
                 * Offer valid until the Febuary 20th, 2022.
             </p>
-            <a href="index.html#contact" class="btn btn-outline-primary btn-lg mt-30">CONTACT US <i class="fa fa-angle-right"></i></a>
+            <%= link_to "CONTACT US", root_path(anchor: 'contact'), class:"btn btn-outline-primary btn-lg mt-30" %>
         </div>
     </div>
 </section>
