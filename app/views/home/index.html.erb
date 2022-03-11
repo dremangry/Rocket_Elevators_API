@@ -1,7 +1,6 @@
 <%= render "shared/navigation" %>
 
 
-
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     
     <div class="overlay dark-6"></div>
@@ -287,8 +286,9 @@
 </section>
 <!-- / SERVICES -->
 
+
 <!-- BANNER -->
-<section class="parallax parallax-1" style="background-image: image-url('rocketElevators/businessSince.jpeg')">
+<section class="parallax parallax-1" style="background-image: url(<%= asset_path "rocketElevators/businessSince.jpeg" %>)">
 <%# <section class="parallax parallax-1" style="background-image: url('assets/images/rocketElevators/businessSince.jpeg');"> %>
     <div class="overlay dark-7"><!-- dark overlay [1 to 9 opacity] --></div>
     <div class="container">
@@ -419,9 +419,9 @@
                 <div class="col-md-3 col-sm-3 mix awards">
                     <div class="item-box">
                         <figure>
-                                <%# <%= image_tag "rocketElevators/award5.jpg", class: "img-fluid", alt:"", width: "600", height:"399"%> 
+                                <%= image_tag "rocketElevators/award4.jpg", class: "img-fluid", alt:"", width: "600", height:"399"%> 
 
-                                <img class="img-fluid" src="assets/images/rocketElevators/award4.jpeg" width="600" height="399" alt="">
+                               <%# <img class="img-fluid" src="assets/images/rocketElevators/award4.jpeg" width="600" height="399" alt=""> %>
                         </figure>
                         <div class="item-box-desc">
                             <h3>1st Place for Green Sustainability</h3>
@@ -437,7 +437,9 @@
                 <div class="col-md-3 col-sm-3 mix awards">
                     <div class="item-box">
                         <figure>
-                                <img class="img-fluid" src="assets/images/rocketElevators/award.png" width="600" height="399" alt="">
+                                <%= image_tag "rocketElevators/award3.jpg", class: "img-fluid", alt:"", width: "600", height:"399"%>
+
+                            <%# <img class="img-fluid" src="assets/images/rocketElevators/award.png" width="600" height="399" alt=""> %>
                         </figure>
                         <div class="item-box-desc">
                             <h3>Leading Canadian Business</h3>
@@ -453,7 +455,8 @@
                 <div class="col-md-3 col-sm-3 mix awards">
                     <div class="item-box">
                         <figure>
-                                <img class="img-fluid" src="assets/images/rocketElevators/award1.png" width="600" height="399" alt="">
+                                <%= image_tag "rocketElevators/award1.png", class: "img-fluid", alt:"", width: "600", height:"399"%>
+                                <%#<img class="img-fluid" src="assets/images/rocketElevators/award1.png" width="600" height="399" alt=""> %>
                         </figure>
                         <div class="item-box-desc">
                             <h3>Frontiers of Innovation</h3>
@@ -471,7 +474,8 @@
                 <div class="col-md-3 col-sm-3 mix residential">
                     <div class="item-box">
                         <figure>
-                                <img class="img-fluid" src="assets/images/rocketElevators/resPortfolio3.jpeg" width="600" height="399" alt="">
+                                <%= image_tag "rocketElevators/resPortfolio3.jpeg", class: "img-fluid", alt:"", width: "600", height:"399"%>
+                                <%#<img class="img-fluid" src="assets/images/rocketElevators/resPortfolio3.jpeg" width="600" height="399" alt=""> %>
                         </figure>
                         <div class="item-box-desc">
                             <h3>Secure Elevators</h3>
@@ -487,7 +491,8 @@
                 <div class="col-md-3 col-sm-3 mix residential">
                     <div class="item-box">
                         <figure>
-                                <img class="img-fluid" src="assets/images/rocketElevators/resPortfolio4.jpeg" width="600" height="399" alt="">
+                                <%= image_tag "rocketElevators/resPortfolio4.jpeg", class: "img-fluid", alt:"", width: "600", height:"399"%>
+                                 <%# <img class="img-fluid" src="assets/images/rocketElevators/resPortfolio4.jpeg" width="600" height="399" alt=""> %>
                         </figure>
                         <div class="item-box-desc">
                             <h3>Minimalistic Design</h3>
@@ -503,7 +508,8 @@
                 <div class="col-md-3 col-sm-3 mix residential">
                     <div class="item-box">
                         <figure>
-                                <img class="img-fluid" src="assets/images/rocketElevators/resPortfolio7.jpg" width="600" height="399" alt="">
+                                <%= image_tag "rocketElevators/resPortfolio4.jpeg", class: "img-fluid", alt:"", width: "600", height:"399"%>
+                               <%#<img class="img-fluid" src="assets/images/rocketElevators/resPortfolio7.jpg" width="600" height="399" alt=""> %>
                         </figure>
                         <div class="item-box-desc">
                             <h3>Back-to-Basics Elevators</h3>
@@ -519,7 +525,8 @@
                 <div class="col-md-3 col-sm-3 mix residential">
                     <div class="item-box">
                         <figure>
-                                <img class="img-fluid" src="assets/images/rocketElevators/resPortfolio8.png" width="600" height="399" alt="">
+                                <%= image_tag "rocketElevators/resPortfolio8.png", class: "img-fluid", alt:"", width: "600", height:"399"%>
+                               <%# <img class="img-fluid" src="assets/images/rocketElevators/resPortfolio8.png" width="600" height="399" alt=""> %>
                         </figure>
                         <div class="item-box-desc">
                             <h3>Custom Home Elevators</h3>
@@ -541,13 +548,11 @@
 <!-- TEAM -->
 <section id="team" class="section-xs dark">
     <div class="container">
-
-        <% %>
         <div class="owl-carousel text-center owl-testimonial m-0" data-plugin-options='{"singleItem": true, "autoPlay": 3500, "navigation": false, "pagination": true, "transitionStyle":"fade"}'>
 
             <div id="CEO" class="testimonial">
                 <figure>
-                    <% image_tag "rocketElevators/CEO.jpg", class: "rounded", alt:""%>
+                    <%= image_tag "rocketElevators/CEO.jpg", class: "rounded", alt:""%>
                     <%# <img class="rounded" src="assets/images/rocketElevators/CEO.jpg" alt="" /> %>
                 </figure>
                 <div class="testimonial-content p-0">
@@ -560,7 +565,7 @@
             </div>
             <div id="employee" class="testimonial">
                 <figure>
-                    <% image_tag "rocketElevators/employee-of-the-month.jpg", class: "rounded", alt:""%>
+                    <%= image_tag "rocketElevators/employee-of-the-month.jpg", class: "rounded", alt:""%>
                     <%# <img class="rounded" src="assets/images/rocketElevators/employee-of-the-month.jpg" alt="" /> %>
                 </figure>
                 <div class="testimonial-content p-0">
