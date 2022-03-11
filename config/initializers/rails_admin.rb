@@ -1,12 +1,13 @@
 RailsAdmin.config do |config|
+  # config.parent_controller = "::ApplicationController"
 
   ### Popular gems integration
-
+ 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  # config.authorize_with do
+  config.authorize_with do
+    redirect_to main_app.root_path unless user_signed_in? and Employee.where(user_id: current_user.id).exists? 
+  end
 
   ## == CancanCan ==
   # config.authorize_with :cancancan

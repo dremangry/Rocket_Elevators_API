@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "quotes", to: "quotes#new"
   post "quotes", to: "quotes#create"
 

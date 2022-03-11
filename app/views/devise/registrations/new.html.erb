@@ -1,0 +1,58 @@
+<%= render "shared/navigation" %>
+
+<!-- PAGE HEADER BREADCRUMBS -->
+<section class="page-header page-header-xs parallax parallax-3" style="background-image:url('assets/images/rocketElevators/imgpattern2.jpg')">
+  <div class="overlay dark-2"></div>
+    <div class="container">
+        <h1 style="text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px"><strong>SIGN UP TODAY!</strong></h1>
+    </div>
+</section>
+<!-- /PAGE HEADER BREADCRUMS -->
+
+<div class="col d-flex justify-content-center container" style="padding-top: 25px">
+  <div class="card" style="width: 50rem;">
+
+    <div class="card-body">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="field">
+            <%= f.label :first_name  %>
+            <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+          </div>
+   
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control"%>
+          <% if @minimum_password_length %>
+          <small>(<%= @minimum_password_length %> characters minimum)</small>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        </div>
+        <br />
+        <div class="actions">
+          <%= f.submit "Sign up", class: "btn btn-primary"%>
+          <h5 class="form-text text-muted float-right" style="margin-bottom: 0px;"> Have an account ? <%= render "devise/shared/links" %> </h5>
+        </div>
+      <% end %>
+      
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
