@@ -9,12 +9,18 @@ We used:
 * Rails version "5.2.6"
 
 * Database creation
-  database.yml -> Make sure rocketelevatorsfoobar is seleceted as your database.
-  mysql rocketelevatorsfoobar made on 3/11/2022
+  database.yml (ubuntu) -> Make sure FeliciaHartono is seleceted as your database.
   includes Users, Employees, Quotes
 
 * Database initialization
-  $ rake db:create
-  $ rake db:migrate
+  $ bundle exec rake db:seed
 
 * Deployment instructions
+  User login:
+              email address of chosen user from employee list (https://docs.google.com/spreadsheets/d/1-S0updscUGOpBpFE-2plFBJlVkCseOUuUpp7nu5e-fY/edit#gid=1786076246)
+              password logic -> first letter of first and last names + 1234
+  
+  User example:                                         
+  Email: francis.patry-jessop@codeboxx.biz                  Email: patrick.thibault@codeboxx.biz
+  Passwrod: fpj1234                                         Password: pt1234
+              
