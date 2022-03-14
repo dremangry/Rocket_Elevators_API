@@ -24,7 +24,6 @@ We used:
   User example:
   * Email: francis.patry-jessop@codeboxx.biz
   * Password: fpj1234
-  Email: francis.patry-jessop@codeboxx.biz
 
   User example:
   * Email: patrick.thibault@codeboxx.biz
