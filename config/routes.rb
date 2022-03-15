@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-<<<<<<< HEAD
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "home#index"
-=======
   get "quotes", to: "quotes#new"
   post "quotes", to: "quotes#create"
 
@@ -13,5 +9,4 @@ Rails.application.routes.draw do
   get "commercial",  to: "home#commercial"
   get "residential", to: "home#residential"
   
->>>>>>> main
 end
