@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 
     def quote
     end
+
+    
+
 end
