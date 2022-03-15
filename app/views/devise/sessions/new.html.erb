@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,3 +25,39 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+=======
+<%= render "shared/navigation"%>
+
+<!-- PAGE HEADER BREADCRUMBS -->
+<section class="page-header page-header-xs parallax parallax-3" style="background-image:url('assets/images/rocketElevators/imgpattern2.jpg')">
+  <div class="overlay dark-2"></div>
+    <div class="container">
+        <h1 style="text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px"><strong>SIGN IN: Welcome back!</strong></h1>
+    </div>
+</section>
+<!-- /PAGE HEADER BREADCRUMS -->
+
+<div class="col d-flex justify-content-center container" style="padding-top: 25px">
+  <div class="card" style="width: 50rem;">
+    <div class="card-body">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control"%>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "SIGN IN", class: "btn btn-primary"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
+>>>>>>> main

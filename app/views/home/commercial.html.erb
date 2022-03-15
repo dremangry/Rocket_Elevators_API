@@ -1,0 +1,174 @@
+<%= render "shared/navigation" %>
+
+<!-- PAGE HEADER BREADCRUMBS -->
+<section class="page-header page-header-xs parallax parallax-3" style="background-image:url('assets/images/rocketElevators/imgpattern2.jpg')">
+    <div class="overlay dark-2"></div>
+    <div class="container">
+        <h1 style="text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px"><strong>COMMERCIAL SERVICES</strong></h1>
+        <ol class="breadcrumb">
+            <li><%= link_to "HOME", root_path %></li>
+            <li><%= link_to "Services", root_path(anchor: 'services') %></li>
+            <li class="active">Commercial</p></li>
+        </ol>
+    </div>
+</section>
+<!-- /PAGE HEADER BREADCRUMS -->
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active text-center">
+            <%= image_tag "rocketElevators/comPortfolio4.jpeg", width: "1375", height:"550" %>
+        </div>
+        <div class="carousel-item text-center">
+            <%= image_tag "rocketElevators/comPortfolio5.jpeg", width: "1375", height:"550" %>
+        </div>
+        <div class="carousel-item text-center">
+            <%= image_tag "rocketElevators/comPortfolio7.jpg", width: "1375", height:"550" %>
+        </div>
+        <div class="carousel-item text-center">
+            <%= image_tag "rocketElevators/comPortfolio9.jpeg", width: "1375", height:"550" %>
+        </div>
+        <div class="carousel-item text-center">
+            <%= image_tag "rocketElevators/comPortfolio10.jpg", width: "1375", height:"550" %>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<!-- BUSINESS MODEL -->
+<section id="business-model">
+
+    <div class="container">
+        <h2 class="m-0">What we deliver since <span style="color: rgb(170, 69, 69)">1976</span>...</h2>
+        <p>
+            ... and why we are trusted
+            by our clients.
+        </p>
+
+        <div class="row">
+            <div class="col-md-3 col-6">
+                <div class="text-center">
+                    <i class="ico-light ico-lg ico-rounded ico-hover fa fa-coffee"></i>
+                    <h4>24/7 Customer Support</h4>
+                    <p>We are one phone call away. We are always ready to answer any questions, provide maintainance, repair services, and many more! </p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="text-center">
+                    <i class="ico-light ico-lg ico-rounded ico-hover fa fa-database"></i>
+                    <h4>Innovative Design</h4>
+                    <p>Our team is consisted of top-tier designers and architects ready to provide creative, innovative, and unique solutions.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="text-center">
+                    <i class="ico-light ico-lg ico-rounded ico-hover fa fa-puzzle-piece"></i>
+                    <h4>Custom Features</h4>
+                    <p>Every building deserves a special touch. We work closely with our clients to deliver what is best for them.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="text-center">
+                    <i class="ico-light ico-lg ico-rounded ico-hover fa fa-shield"></i>
+                    <h4>Enhanced Safety</h4>
+                    <p>Your safety is our priority, and we take it to the next level. Our highly-experienced engineers have developed state-of-the-art safety features to our elevators.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- /BUSINESS MODEL -->
+
+
+<!-- PARALLAX -->
+<section class="parallax parallax-2" style="background-image: url(<%= asset_path "rocketElevators/homeSlider1.jpeg" %>)">
+    <div class="overlay dark-7"></div>
+    <div class="container text-center">
+        <div class="text-center">
+            <h3>Contact us now & get <span class="countTo" data-speed="1000" style="color: #fff">10</span>% discount</br> of your first purchase!</h3>
+            <p class="font-lato fs-20">
+                * Offer valid until the Febuary 20th, 2022.
+            </p>
+            <%= link_to "CONTACT US", root_path(anchor: 'contact'), class:"btn btn-outline-primary btn-lg mt-30" %>
+        </div>
+    </div>
+</section>
+<!-- /PARALLAX -->
+
+
+<!-- TESTIMONIAL -->
+<section id="com-testimonial">
+    <div class="container" >
+        <div class="row">
+            <h2 class="m-0" style="padding-bottom: 1%;"><span style="color:rgb(170, 69, 69)">Still not convinced?</span> Hear what our clients have to say:</h2>
+            <section class="alternate" style="border-bottom-color:rgb(255,255,255)">
+                <div class="container">
+                    <div class="row" style="text-align: center;">
+                        <div class="col-md-4" >
+                            <div class="heading-title heading-border-bottom heading-color" style="border-bottom-color:rgb(10, 101, 160); border-bottom-width: 3px">
+                                <h3><em>"Thank you Rocket Elevators!"</em></h3>
+                            </div>
+                            <p>"I couldn't have asked for more than this. We've used Rocket Elevators for the last five years. I would like to personally thank you for your outstanding product."
+                            </p>
+                            <div class="testimonial">
+                                <figure>
+                                    <%= image_tag "rocketElevators/testi4.jpg", class:"rounded"%>
+                                </figure>
+                                <cite>                                    
+                                    Michele Obama
+                                    <span>Former First Lady of the United States</span>
+                                </cite>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="heading-title heading-border-bottom heading-color" style="border-bottom-color:rgb(10, 101, 160); border-bottom-width: 3px">
+                                <h3><em>"The iPhone of <br> Elevators!"</em></h3>
+                            </div>
+                            <p>"The iPhone of all elevators is here. Rocket Elevators' dedication to deliver the best has inspired me to build a new line of Apple products that are as impressive and excellent."</p>
+                            <div class="testimonial">
+                                <figure>
+                                    <%= image_tag "rocketElevators/testi5.png", class:"rounded"%>
+                                </figure>
+                                <cite>                                    
+                                    Steve Job
+                                    <span>CEO of Apple</span>
+                                </cite>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="heading-title heading-border-bottom heading-color" style="border-bottom-color:rgb(10, 101, 160); border-bottom-width: 3px">
+                                <h3><em>"Even Magneto <br>  can't bend it!"</em></h3>
+                            </div>
+                            <p>"Rocket Elevators' products are the most robust elevators. Even my dear old friend Magneto can't bend it! I have installed multiple elevators at Xavier Institute for Gifted Youngster. It is just incredible!" </p>
+                            <div class="testimonial">
+                                <figure>
+                                    <%= image_tag "rocketElevators/testi6.jpg", class:"rounded"%>
+                                    <%# img class="rounded" src="assets/images/rocketElevators/testi6.jpg"/ %>
+                                </figure>
+                                <cite>                                    
+                                    Charles Francis Xavier
+                                    <span>Founder of X-Men</span>
+                                </cite>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+<!-- /TESTIMONIAL -->
+
+
+<%= render "shared/footer" %>
