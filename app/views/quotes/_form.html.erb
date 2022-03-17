@@ -1,4 +1,5 @@
 <%= render "shared/navigation" %>
+
 <!-- PAGE HEADER BREADCRUMBS -->
 <section class="page-header page-header-xs parallax parallax-3" style="background-image:url(<%= asset_path 'rocketElevators/imgpattern2.jpg' %>)">
   <div class="overlay dark-2"></div>
@@ -22,7 +23,7 @@
           </h3>
           <h4 style="color:rgb(170, 69, 69); text-shadow:rgb(0 0 0 / 30%) 3px 3px 5px">
               QUESTIONS? 
-              <a href="index.html#contact" class="btn btn-outline-primary btn-lg" style="margin-left: 20px; color: white;">CONTACT US <i class="fa fa-angle-right"></i></a>
+              <%= link_to "CONTACT US", root_path(anchor: 'contact'), class: "btn btn-outline-primary btn-lg", style: "margin-left: 20px; color: white;"%>
           </h4>
       </div>
   </div>
@@ -43,74 +44,66 @@
                     </label>
                 </div>
                 <div class="card-block" style="margin: 20px">
-
                     <%= form.select :building_type, ['---Select---',['Residential', 'residential', :id => 'residential'], ['Commercial', 'commercial', :id => 'commercial'], ['Corporate', 'corporate', :id => 'corporate'], ['Hybrid', 'hybrid', :id => 'hybrid']], {}, class: "form-control pointer required", id: "building_type", name: "building_type" %>  
-
                     <%= form.text_field :building_type, id: "submit_building_type", :readonly => true, :hidden => true %>
-
                 </div>
             </div>
               
             <div class="estimate-num-elv card card-default"  style="display: none;"> 
-                
                 <div class="card-heading step-description">
                     <h3>
                         <span style="color:rgb(10, 101, 160); font-weight:bolder">STEP 2 |</span> Provide Building Information
                     </h3>
                 </div>
-
                 <div class="card-block">
-
                     <% if quote.errors.any? %>
-                    <div id="error_explanation">
-                        <h2><%= pluralize(quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
-
-                        <ul>
-                        <% quote.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                        <% end %>
-                        </ul>
-                    </div>
+                        <div id="error_explanation">
+                            <h2><%= pluralize(quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
+                            <ul>
+                                <% quote.errors.full_messages.each do |message| %>
+                                    <li><%= message %></li>
+                                <% end %>
+                            </ul>
+                        </div>
                     <% end %>
 
                     <div class="row d-none" style="margin: 20px">
                         <div id="number-of-floors" class="col-4 residential commercial corporate hybrid">
-                        <label><h4>Number of Floors</h4></label>
-                        <%= form.number_field :num_floors, min: "0", max: "1000", class:"form-control" %>
+                            <label><h4>Number of Floors</h4></label>
+                            <%= form.number_field :num_floors, min: "0", max: "1000", class:"form-control" %>
                         </div>
                         <div id="number-of-basements" class="col-4 residential commercial corporate hybrid">
-                        <label><h4>Number of Basements</h4></label>
-                        <%= form.number_field :num_base, min: "0", max: "1000", class:"form-control" %>
+                            <label><h4>Number of Basements</h4></label>
+                            <%= form.number_field :num_base, min: "0", max: "1000", class:"form-control" %>
                         </div>
                         <div id="number-of-apartments" class="col-4 residential">
-                        <label><h4>Number of Appartments</h4></label>
-                        <%= form.number_field :num_apts, min: "0", max: "1000", class:"form-control" %>
+                            <label><h4>Number of Appartments</h4></label>
+                            <%= form.number_field :num_apts, min: "0", max: "1000", class:"form-control" %>
                         </div>
                         <div id="number-of-companies" class="col-4 commercial hybrid">
-                        <label><h4>Number of Companies</h4></label>
-                        <%= form.number_field :num_comp, min: "0", max: "1000", class:"form-control" %>
+                            <label><h4>Number of Companies</h4></label>
+                            <%= form.number_field :num_comp, min: "0", max: "1000", class:"form-control" %>
                         </div>
                         <div id="number-of-parking-spots" class="col-4 commercial corporate hybrid">
-                        <label><h4>Number of Parking Spots</h4></label>
-                        <%= form.number_field :num_park, min: "0", max: "1000", class:"form-control" %>
+                            <label><h4>Number of Parking Spots</h4></label>
+                            <%= form.number_field :num_park, min: "0", max: "1000", class:"form-control" %>
                         </div>
                         <div id="number-of-elevators" class="col-4 commercial">
-                        <label><h4>Number of Elevators</h4></label>
-                        <%= form.number_field :num_elev, min: "0", max: "1000", class:"form-control" %>
+                            <label><h4>Number of Elevators</h4></label>
+                            <%= form.number_field :num_elev, min: "0", max: "1000", class:"form-control" %>
                         </div>
-
                         <div id="number-of-corporations" class="col-4 corporate">
-                        <label><h4>Number of Corporations</h4></label>
-                        <%= form.number_field :num_corps, min: "0", max: "1000", class:"form-control" %>
+                            <label><h4>Number of Corporations</h4></label>
+                            <%= form.number_field :num_corps, min: "0", max: "1000", class:"form-control" %>
                         </div>
                         <div id="maximum-occupancy" class="col-4 corporate hybrid">
-                        <label><h4>Maximum Occupancy</h4></label>
-                        <%= form.number_field :max_occ, min: "0", max: "1000", class:"form-control" %>
+                            <label><h4>Maximum Occupancy</h4></label>
+                            <%= form.number_field :max_occ, min: "0", max: "1000", class:"form-control" %>
                         </div>
                         <div id="business-hours" class="col-4 hybrid">
-                        <label><h4>Business Hours</h4></label>
-                        <%= form.number_field :b_hours, min: "0", max: "24", class:"form-control" %>
-                        </div>      
+                            <label><h4>Business Hours</h4></label>
+                            <%= form.number_field :b_hours, min: "0", max: "24", class:"form-control" %>
+                        </div>                
                     </div>
 
                     <div class="row" style="margin: 20px" id="elevator-amount">
@@ -120,9 +113,7 @@
                             <p style="margin-bottom: 0px;">* With exception for commercial buildings</p>
                         </div>
                     </div>		
-
                 </div>
-                
             </div>
 
             <div class="product-line card card-default" style="display: none;">
@@ -153,8 +144,8 @@
                             </label>
                         </div>
                     </div>
-                    
                 </div>
+                <%= form.text_field :product_line, id: "submit_product_line", :readonly => true, :hidden => true %>
             </div>
 
             <div class="final-pricing-display card card-default" style="display: none;">
@@ -192,7 +183,6 @@
 
                         <div  id="installation-fees"  class="col-md-3 col-sm-6 block">
                             <div class="pricing">
-
                                 <div class="pricing-head">
                                     <h3>Installation Fee</h3>
                                     <small>Percent Elevator Cost</small>
@@ -214,15 +204,13 @@
                                 </h4>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
-            
                
             </div>
 
-             <div class="actions">
-                <%= form.submit class: "btn btn-primary" %>
+            <div class="actions submit-form" style="display: none;">
+                <%= form.submit class: "btn btn-primary btn-lg" %>
             </div>
            
         <% end %> 
