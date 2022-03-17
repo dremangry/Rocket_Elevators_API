@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_15_213224) do
-
-  create_table "Lead", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "full_name_of_the_contact"
-    t.string "company_name"
-    t.string "email"
-    t.string "phone"
-    t.string "project_description"
-    t.string "department_in_chage_of_the_elevators"
-    t.string "message"
-  end
+ActiveRecord::Schema.define(version: 2022_03_17_151253) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "type_of_address"
@@ -63,7 +53,6 @@ ActiveRecord::Schema.define(version: 2022_03_15_213224) do
 
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "customer_id"
-    t.string "address_of_building"
     t.string "full_name_of_the_building_administrator"
     t.string "email_of_the_administrator_of_the_building"
     t.string "phone_number_of_the_building_administrator"
@@ -79,13 +68,13 @@ ActiveRecord::Schema.define(version: 2022_03_15_213224) do
 
   create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "battery_id"
-    t.string "type"
     t.string "number_of_floors_served"
     t.string "status"
     t.string "information"
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "typing"
     t.index ["battery_id"], name: "index_columns_on_battery_id"
   end
 
@@ -112,7 +101,6 @@ ActiveRecord::Schema.define(version: 2022_03_15_213224) do
     t.bigint "column_id"
     t.string "serial_number"
     t.string "model"
-    t.string "type"
     t.string "status"
     t.date "date_of_commissioning"
     t.date "date_of_last_inspection"
@@ -121,6 +109,7 @@ ActiveRecord::Schema.define(version: 2022_03_15_213224) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "typing"
     t.index ["column_id"], name: "index_elevators_on_column_id"
   end
 
