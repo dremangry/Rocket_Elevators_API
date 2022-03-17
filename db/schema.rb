@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_17_151253) do
+ActiveRecord::Schema.define(version: 2022_03_17_191332) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "type_of_address"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2022_03_17_151253) do
 
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "building_id"
-    t.string "type"
     t.string "status"
     t.bigint "employee_id"
     t.date "date_of_commissioning"
@@ -38,6 +37,7 @@ ActiveRecord::Schema.define(version: 2022_03_17_151253) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "typing"
     t.index ["building_id"], name: "index_batteries_on_building_id"
     t.index ["employee_id"], name: "index_batteries_on_employee_id"
   end
@@ -119,6 +119,21 @@ ActiveRecord::Schema.define(version: 2022_03_17_151253) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "full_name_of_the_contact"
+    t.string "company_name"
+    t.string "email"
+    t.string "phone"
+    t.string "project_name"
+    t.string "project_description"
+    t.string "department_in_charge_of_elevators"
+    t.string "message"
+    t.date "date_of_contact_request"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.binary "attached_file_stored_as_binary"
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
