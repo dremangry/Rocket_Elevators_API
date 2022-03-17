@@ -8,6 +8,9 @@ gem 'rails', '~> 5.2.6'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 gem 'mysql2', '~> 0.5.3'
+gem 'pg'
+
+# Asset pipeline gem
 gem 'jquery-rails'
 gem 'bootstrap-social-rails'
 gem 'bootstrap', '~> 4.3.1'
