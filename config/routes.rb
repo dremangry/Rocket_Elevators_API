@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  resources :leads  
   devise_for :users
+
+  # get "leads", to: "leads#new"
+  # post "leads", to: "leads#create"
+  # get "leads/index", to: "leads#index"
+  
+  post "/", to: "leads#create"
   get "quotes", to: "quotes#new"
   post "quotes", to: "quotes#create"
 

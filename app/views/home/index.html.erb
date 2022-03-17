@@ -619,7 +619,7 @@
     <div class="container">
         <div class="row">
             <!-- FORM -->
-            <div class="col-md-8 col-sm-8">
+         <%#   <div class="col-md-8 col-sm-8">
 
                 <header class="text-center mb-60">
                     <h2>Contact Us Today</h2>
@@ -713,9 +713,9 @@
                     </div>
                 </form>
 
-            </div>
-            <!-- /FORM -->
+            </div> --> %>
 
+            <%= render 'leads/form', lead: @lead %>
 
             <!-- INFO -->
             <div class="col-md-4 col-sm-4" style="padding-left: 5%">
