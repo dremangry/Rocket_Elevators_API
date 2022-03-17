@@ -1,9 +1,13 @@
 $(document).ready(function () {
-    $("#contact-form").on("submit", function (e) {
-        e.preventDefault();
+    if (
+        $(".alert")
+            .html()
+            .indexOf("Thank you. We will communicate with you shortly!") >= 0
+    ) {
+        $(".alert").hide();
         $("#success-message").modal("show");
-        this.reset();
-    });
+    }
+
     $("#subscribe-form").on("submit", function (e) {
         e.preventDefault();
         $("#subscribe-message").modal("show");
