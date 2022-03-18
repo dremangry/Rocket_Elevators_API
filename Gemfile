@@ -17,7 +17,7 @@ gem 'bootstrap_form', '~> 4.2'
 gem 'sprockets-rails', '2.3.3'
 gem 'devise'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-gem 'table_print', '~> 1.5', '>= 1.5.6'
+gem 'chartkick'
 # Use Puma as the app server
 gem 'puma', '~> 4.3.11'
 # Use SCSS for stylesheets
