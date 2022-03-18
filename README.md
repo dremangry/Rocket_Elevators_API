@@ -3,8 +3,8 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [Project Description](#project-description)
-- [Application Requirement](#application-requirement)
-- [Quick Start & Test Launch](#quick-start--test-launch)
+- [Application Requirements](#application-requirements)
+- [Using the Web App Features](#using-the-web-app-features)
 - [Credits](#credits)
 
 ## Project Description
@@ -16,13 +16,13 @@ The project serves a three-fold purposes: (1) the conversion of static to dynami
 -   [Ruby](https://www.ruby-lang.org/en/downloads/) (v2.7.5)
 -   [Rails](https://rubyonrails.org/) (v.5.2.6)
 
-## Using the Web Application (Back Office)
+## Using the Web App Features
 
 ### 1. Quote Form & Contact Form Submission
 All users and non-users can submit quote and contact form. Submitted data will then be stored in the database on the tables 'Quotes' and 'Leads', respectively.
 
 ### 2. Databases & Data Warehouse
-MySQL database of the web app contains data associated with: users, employees, customers, buildings, batteries, columns, elevators, addresses (of buildings & customers), quote form submission, and contact form submission (lead). Data entries regarding to customers, quote form, contact form, and deployed elevators with a creation date timestamp within the last 3 years (2019 - 2022) were stored in a PostgreSQL data warehouse. Extraction and loading of data from MySQL to PostgreSQL were performed using the following rake task commands:
+MySQL database of the web app contains data associated with: users, employees, customers, buildings, batteries, columns, elevators, addresses (of buildings & customers), quote form submission, and contact form submission (lead). Data entries regarding to customers, quote form, contact form, and deployed elevators with a creation date timestamp within the last 3 years (2019 - 2022) were stored in a PostgreSQL data warehouse. Extraction and loading of data from MySQL to PostgreSQL were performed using the rake task commands outlined below. Note that the <database_name> is the name of database for the data warehouse in PostgreSQL.
 
 - Pertaining to quote form submission:
   ```
@@ -68,14 +68,13 @@ Access to back-end office is restricted to users that were assigned as [employee
     * Email: patrick.thibault@codeboxx.biz
     * Password: pt1234
 
+## Credits
 
-* Database creation
-  database.yml (ubuntu) -> Make sure FeliciaHartono is seleceted as your database.
-  includes Users, Employees, Quotes
+This project was made possible through the support of:
 
-* Database initialization
-  $ bundle exec rake db:seed
-
-* Deployment instructions
- 
+-   Emmanuela Derilus
+-   Mathieu	Houde
+-   Patrick Thibault
+-   Francis Patry-Jessop
+-   CodeBoxx School of Technology Community
 
