@@ -1,8 +1,13 @@
 require 'pg'
 
 desc "Create data warehouse for facts."
+#databasename: foobarwarehouse
 
 namespace :warehouse do
+
+    task :test do
+        puts "testing in progress.."
+    end
     
     task :create_quoteFact, [:db_name] do |task, args|
         puts "connected to #{args[:db_name]}"
@@ -20,11 +25,13 @@ namespace :warehouse do
     task :import_quoteFact, [:db_name] => :environment do |task, args|        
         puts "Connected to #{args[:db_name]}"
         conn = PG::Connection.open(:dbname => "#{args[:db_name]}")
-        Quote.where("extract(year from created_at)" => 2019..2022) do |quote|
+        
+        Quote.where(created_at: Time.parse("Jan 2019")..Time.parse("Dec 2022")).each do |quote|
 
             quote.company_name.sub! '\'', '"'
+            puts "INSERT INTO quote_fact (id, company_name, email, num_elev, created_at) VALUES ('#{quote.id}', '#{quote.company_name}', '#{quote.email}', '#{quote.num_elev}', '#{quote.created_at}')"
 
-            conn.exec("INSERT INTO quote_fact (id, company_name, email, num_elev, created_at) VALUES ('#{quote.id}', '#{quote.company_name}', '#{quote.email}', '#{quote.num_elev}', '#{quote.created_at}')")
+            # conn.exec("INSERT INTO quote_fact (id, company_name, email, num_elev, created_at) VALUES ('#{quote.id}', '#{quote.company_name}', '#{quote.email}', '#{quote.num_elev}', '#{quote.created_at}')")
         end
         puts "...quote form data saved to data warehouse at table: quote_fact."
     end
@@ -48,7 +55,7 @@ namespace :warehouse do
     task :import_contactFact, [:db_name] => :environment do |task, args|        
         puts "Connected to #{args[:db_name]}"
         conn = PG::Connection.open(:dbname => "#{args[:db_name]}")
-        Lead.where("extract(year from created_at)" => 2019..2022) do |lead|
+        Lead.where(created_at: Time.parse("Jan 2019")..Time.parse("Dec 2022")).each do |lead|
 
             lead.company_name.sub! '\'', '"'
             lead.project_name.sub! '\'', '"'
@@ -77,21 +84,28 @@ namespace :warehouse do
     task :import_elevFact, [:db_name] => :environment do |task, args|        
         puts "Connected to #{args[:db_name]}"
         conn = PG::Connection.open(:dbname => "#{args[:db_name]}")
-        Elevator.where("extract(year from created_at)" => 2019..2022) do |elevator|
+        Elevator.where(created_at: Time.parse("Jan 2019")..Time.parse("Dec 2022")).each do |elevator|
             
             # elevator_id > column_id > battery_id > building_id > customer_id 
             building_id = Battery.find(Column.find(elevator.column_id).battery_id).building_id
             # customer_id
             customer_id = Building.find(building_id).customer_id
-            
-            conn.exec("INSERT INTO elevator_fact (id, serial_number, commission_date, building_id, customer_id, building_city) VALUES ('#{elevator.id}', '#{elevator.serial_number}', '#{elevator.date_of_commissioning}', '#{building_id}', '#{customer_id}', '#{Address.find(Building.find(building_id).address_id).city}')")
+
+            # puts "#{Address.find(Building.find(building_id).address_id).city}"
+            puts "building_id: #{building_id}"
+            puts "address_id in building: #{Building.find(building_id).address_id}"
+            puts "customer_id: #{customer_id}"
+
+            # puts "INSERT INTO elevator_fact (id, serial_number, commission_date, building_id, customer_id, building_city) VALUES ('#{elevator.id}', '#{elevator.serial_number}', '#{elevator.date_of_commissioning}', '#{building_id}', '#{customer_id}', '#{Address.find(Building.find(building_id).address_id).city}')"
+
+            # conn.exec("INSERT INTO elevator_fact (id, serial_number, commission_date, building_id, customer_id, building_city) VALUES ('#{elevator.id}', '#{elevator.serial_number}', '#{elevator.date_of_commissioning}', '#{building_id}', '#{customer_id}', '#{Address.find(Building.find(building_id).address_id).city}')")
 
         end
         puts "...elevator data saved to data warehouse at table: elevator_fact."
     end
 
     ########################################################################
-    ########################################################################
+    ######################################################################## 
 
     task :create_dimCustomer, [:db_name] do |task, args|
         puts "connected to #{args[:db_name]}"
@@ -109,27 +123,21 @@ namespace :warehouse do
     end
 
     task :import_dimCustomer, [:db_name] => :environment do |task, args|        
-        puts "Connected to #{args[:db_name]}"
+        puts "Connected to #{args[:db_name]}..."
         conn = PG::Connection.open(:dbname => "#{args[:db_name]}")
 
-        Customer.where("extract(year from created_at)" => 2019..2022) do |customer|
-
+        Customer.where(customer_creation_date: Time.parse("Jan 2019")..Time.parse("Dec 2022")).each do |customer|
             num_elev = 0
-
             Elevator.all.each do |elevator|
                 if Building.find(Battery.find(Column.find(elevator.column_id).battery_id).building_id).customer_id == customer.id
                     num_elev += 1
                 end
             end
-
             customer.company_name.sub! '\'', '"'
             customer.full_name_of_the_company_contact.sub! '\'', '"'
-
-            conn.exec("INSERT INTO dim_customer (id, customer_creation_date, company_name, contact_full_name, email, city, num_elev) VALUES ('#{customer.id}', '#{customer.customer_creation_date}', '#{customer.company_name}', '#{customer.full_name_of_the_company_contact}', '#{customer.email_of_the_company_contact}', '#{num_elev}', '#{Address.find(customer.address_id).city}')")
-
+            conn.exec("INSERT INTO dim_customer (id, customer_creation_date, company_name, contact_full_name, email, city, num_elev) VALUES ('#{customer.id}', '#{customer.customer_creation_date}', '#{customer.company_name}', '#{customer.full_name_of_the_company_contact}', '#{customer.email_of_the_company_contact}', '#{Address.find(customer.address_id).city}', '#{num_elev}')")
         end
-
-        puts "...customer data saved to data warehouse ."
+        puts "...customer data saved to data warehouse."
     end
 
 end
@@ -149,11 +157,15 @@ namespace :query do
         conn.exec("SELECT COUNT(id) as total_quote, date_trunc('month', created_at) as month FROM quote_fact GROUP BY date_trunc('month', created_at) ORDER BY date_trunc('month', created_at)")
     end
 
-    task :three do
+    task :three, [:db_name] => :environment do |task, args|
         # The number of elevators (ElevatorId) contained in the buildings belonging to each customer
         conn = PG::Connection.open(:dbname => "#{args[:db_name]}")
-        conn.exec("SELECT num_elev, id FROM dim_customer")
-
+        puts "-------------+-----------------------------+-------------"
+        puts "#{"Nb. Elev".ljust(10)}   | #{"Customer Name".ljust(25)}   | #{"Cust ID".ljust(10)} "
+        puts "-------------+-----------------------------+-------------"
+        conn.exec("SELECT num_elev, id, contact_full_name FROM dim_customer").to_a.each do |row|
+            puts "#{row["num_elev"].ljust(10)}   | #{row["contact_full_name"].ljust(25)}   | #{row["id"].ljust(10)} "
+        end
     end
 
 end
