@@ -1,5 +1,6 @@
 RailsAdmin.config do |config|
   # config.parent_controller = "::ApplicationController"
+  require Rails.root.join('lib', 'rails_admin', 'custom_actions.rb')
 
   ### Popular gems integration
  
@@ -27,6 +28,7 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
+    root
     new
     export
     bulk_delete

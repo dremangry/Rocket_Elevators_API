@@ -20,3 +20,6 @@
 //= require_self
 //= require bootstrap.min.js
 //= require bootstrap.min
+
+//= require chartkick
+//= require Chart.bundle

@@ -2,7 +2,6 @@ $(document).ready(function () {
     "use strict";
 
     let buildingType_select = document.getElementById("building_type");
-    // console.log(buildingType_select.value);
     let selectedBuildingType = document.getElementById("submit_building_type");
     let buildingType =
         buildingType_select.options[buildingType_select.selectedIndex].value;
@@ -27,6 +26,7 @@ $(document).ready(function () {
         .querySelector("input");
 
     let productLineSelection_div = document.querySelector(".product-line");
+    let selectedProductLine = document.getElementById("submit_product_line");
     let radioBtns_div = document.querySelector(".radio-btns");
     let warning_p = document.getElementById("warning");
 
@@ -45,6 +45,11 @@ $(document).ready(function () {
     let displayEstTotalCost_input = document
         .getElementById("final-price")
         .querySelector("input");
+
+    let userInfo_div = document.querySelector(".user-info");
+    let submitForm_div = document.querySelector(".submit-form");
+    let companyName_field = document.getElementById("company-name");
+    let userEmail_field = document.getElementById("user-email");
 
     let formatter = new Intl.NumberFormat("en-US", {
         style: "currency",
@@ -141,6 +146,8 @@ $(document).ready(function () {
             .forEach((input) => {
                 input.setAttribute("value", "");
             });
+        companyName_field.setAttribute("value", "");
+        userEmail_field.setAttribute("value", "");
     }
 
     function displayBuildingFields(buildingType) {
@@ -158,6 +165,8 @@ $(document).ready(function () {
         }
         productLineSelection_div.style.display = "block";
         finalPricingDisplay_div.style.display = "block";
+        submitForm_div.style.display = "block";
+        userInfo_div.style.display = "block";
     }
 
     function displayElvCalcResult(buildingType) {
@@ -217,6 +226,13 @@ $(document).ready(function () {
                 let productLine = document.querySelector(
                     "input[name='product-line']:checked"
                 ).id;
+                selectedProductLine.setAttribute(
+                    "value",
+                    `${
+                        productLine.charAt(0).toUpperCase() +
+                        productLine.slice(1)
+                    }`
+                );
                 displayPricing(productLine, numElv);
             } catch {
                 // empty: waiting for user to select product line;
@@ -251,7 +267,6 @@ $(document).ready(function () {
         if (buildingType == "---Select---") {
             resetForm();
         } else {
-            // s.charAt(0).toUpperCase() + s.slice(1)
             selectedBuildingType.setAttribute(
                 "value",
                 `${

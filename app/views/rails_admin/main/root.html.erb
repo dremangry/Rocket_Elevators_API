@@ -1,0 +1,68 @@
+
+<%= javascript_include_tag 'application' %>
+
+<div style="border: 2px solid #F5F5F5; border-radius: 10px; padding: 70px;">
+    <div class="card">
+        <h1 class="card-title">Number of Monthly Contacts</h1>
+        <hr/>
+        <div class="card-body">
+            <p class="card-text"><strong style="color: #D95350">Note:</strong> Y-axis represents cumulative number of contacts within the last 3 years (2019-2022).</p>
+        
+            <% month_list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+            <% conn = PG::Connection.open(:dbname => "foobarwarehouse") %>
+            <% data = [] %>
+            <% (0..11).each do |i| %> 
+                <% month = i + 1 %>
+                <% contact_count = conn.exec("SELECT id FROM contact_fact WHERE (EXTRACT(MONTH from created_at) = #{month})").count %>
+                <% data.push([month_list[i], contact_count]) %>
+            <% end %>
+
+            <%= column_chart data, xtitle: "Month", ytitle: "Nb. of Contacts" %>
+            <a href="/admin/lead" class="btn btn-danger">See All Contacts</a>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div style="border: 2px solid #F5F5F5; border-radius: 10px; padding: 70px;">
+    <div class="card">
+        <h1 class="card-title">Number of Monthly Quote Requests</h1>
+        <hr/>
+        <div class="card-body">
+            <p class="card-text"><strong style="color: #D95350">Note:</strong> Y-axis represents cumulative number of quote requests within the last 3 years (2019-2022).</p>
+        
+            <% month_list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+            <% conn = PG::Connection.open(:dbname => "foobarwarehouse") %>
+            <% data = [] %>
+            <% (0..11).each do |i| %> 
+                <% month = i + 1 %>
+                <% contact_count = conn.exec("SELECT id FROM quote_fact WHERE (EXTRACT(MONTH from created_at) = #{month})").count %>
+                <% data.push([month_list[i], contact_count]) %>
+            <% end %>
+
+            <%= column_chart data, xtitle: "Month", ytitle: "Nb. of Quote Requests",  colors: ["#D95350"] %>
+            <a href="/admin/quote" class="btn btn-danger">See All Quote Requests</a>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div style="border: 2px solid #F5F5F5; border-radius: 10px; padding: 70px;">
+    <div class="card">
+        <h1 class="card-title">Number of Elevators per Company</h1>
+        <hr/>
+        <div class="card-body">
+            <p class="card-text"><strong style="color: #D95350">Note:</strong> X-axis represents total number of elevators for companies created within the last 3 years (2019-2022).</p>
+
+            <% conn = PG::Connection.open(:dbname => "foobarwarehouse") %>
+            <% data = [] %>
+            <% conn.exec("SELECT num_elev, company_name FROM dim_customer").to_a.each do |row| %>
+                <% data.push([row["company_name"], row["num_elev"]]) %>
+            <% end %>
+
+            <%= bar_chart data, ytitle: "Company Name", xtitle: "Nb. of Elevators in All Company Buildings" %>
+            <a href="/admin/elevator" class="btn btn-danger">See All Elevators</a>
+        </div>
+    </div>
+</div>
+
