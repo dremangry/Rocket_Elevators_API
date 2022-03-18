@@ -6,7 +6,7 @@
         <h1 class="card-title">Number of Monthly Contacts</h1>
         <hr/>
         <div class="card-body">
-            <p class="card-text"><strong>Note:</strong> Y-axis represents cumulative number of contacts within the last 3 years (2019-2022).</p>
+            <p class="card-text"><strong style="color: #D95350">Note:</strong> Y-axis represents cumulative number of contacts within the last 3 years (2019-2022).</p>
         
             <% month_list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
             <% conn = PG::Connection.open(:dbname => "foobarwarehouse") %>
@@ -29,7 +29,7 @@
         <h1 class="card-title">Number of Monthly Quote Requests</h1>
         <hr/>
         <div class="card-body">
-            <p class="card-text"><strong>Note:</strong> Y-axis represents cumulative number of quote requests within the last 3 years (2019-2022).</p>
+            <p class="card-text"><strong style="color: #D95350">Note:</strong> Y-axis represents cumulative number of quote requests within the last 3 years (2019-2022).</p>
         
             <% month_list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
             <% conn = PG::Connection.open(:dbname => "foobarwarehouse") %>
@@ -40,7 +40,7 @@
                 <% data.push([month_list[i], contact_count]) %>
             <% end %>
 
-            <%= column_chart data, xtitle: "Month", ytitle: "Nb. of Quote Requests",  colors: ["#FF0000"] %>
+            <%= column_chart data, xtitle: "Month", ytitle: "Nb. of Quote Requests",  colors: ["#D95350"] %>
             <a href="/admin/quote" class="btn btn-danger">See All Quote Requests</a>
         </div>
     </div>
@@ -52,7 +52,7 @@
         <h1 class="card-title">Number of Elevators per Company</h1>
         <hr/>
         <div class="card-body">
-            <p class="card-text"><strong>Note:</strong> X-axis represents total number of elevators for companies created within the last 3 years (2019-2022).</p>
+            <p class="card-text"><strong style="color: #D95350">Note:</strong> X-axis represents total number of elevators for companies created within the last 3 years (2019-2022).</p>
 
             <% conn = PG::Connection.open(:dbname => "foobarwarehouse") %>
             <% data = [] %>
