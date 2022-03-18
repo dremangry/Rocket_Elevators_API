@@ -73,7 +73,8 @@ Lead.create(full_name: "Amiya Bond", company_name: "Canadian Tire", email: "A_Bo
 # Generating 80 leads to have total of 100
 department_elevators = ["Residential", "Commercial"] 
 80.times {
-    Lead.create!(full_name: Faker::Name.name, company_name: Faker::Company.name, email: Faker::Internet.email, phone: Faker::PhoneNumber.cell_phone, project_name: Faker::FunnyName.two_word_name, project_description: Faker::Company.buzzword, department_in_charge_of_elevators: department_elevators.sample, message: Faker::ChuckNorris.fact, date_of_contact_request: Faker::Date.between(from: '2017-09-23', to: '2022-01-25'), created_at: Faker::Date.between(from: '2017-09-23', to: '2022-01-25'))
+    fakeDate = Faker::Date.between(from: '2017-09-23', to: '2022-01-25')
+    Lead.create!(full_name: Faker::Name.name, company_name: Faker::Company.name, email: Faker::Internet.email, phone: Faker::PhoneNumber.cell_phone, project_name: Faker::FunnyName.two_word_name, project_description: Faker::Company.buzzword, department_in_charge_of_elevators: department_elevators.sample, message: Faker::ChuckNorris.fact, created_at: fakeDate, date_of_contact_request: fakeDate + rand(5..10).day)
 }
 
 # Generating 75 addresses
