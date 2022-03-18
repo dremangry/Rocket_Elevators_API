@@ -57,7 +57,8 @@ The rake task is also equipped with 3 queries and can be executed using the foll
   ```
   rake query:three[<database_name>]
   ```
-Upon successful execution, the following query results will be printed on the console.
+Upon successful execution, the following query results will be printed on the console. 
+[Query1](https://drive.google.com/file/d/129iqW1HGymV2cpbZCFhdZWS9Wb50PRTp/view?usp=sharing)
 
 ### 3. Access to Back Office (Restricted)
 Access to back-end office is restricted to users that were assigned as [employees](https://docs.google.com/spreadsheets/d/1-S0updscUGOpBpFE-2plFBJlVkCseOUuUpp7nu5e-fY/edit#gid=1786076246). Email and password are also required to access the back-end office. To login, simply use the employee's email and using the password that follows the logic of: first letter of first name + first letter of last names + 1234. For example:
