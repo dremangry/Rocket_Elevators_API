@@ -1,4 +1,4 @@
-# Rocket Elevators: Commercial Controller with Rust <!-- omit in toc -->
+# Rocket Elevators: Ruby on Rails <!-- omit in toc -->
 
 ## Table of Contents <!-- omit in toc -->
 
