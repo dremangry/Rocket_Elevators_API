@@ -176,12 +176,6 @@ namespace :query do
         conn.exec("SELECT COUNT(id) as total_quote, date_trunc('month', created_at) as month FROM quote_fact GROUP BY date_trunc('month', created_at) ORDER BY date_trunc('month', created_at)").to_a.each do |row|
             year = Date.parse(row["month"]).year
             lead_month = month[Date.parse(row["month"]).mon - 1]
-
-            # curr_year = year if !curr_year or year > curr_year
-            # year == curr_year ? quote_tally += row["total_quote"].to_i : quote_tally = 0 
-
-            # puts "#{curr_year}: quote_tally = #{quote_tally}"
-            
             puts "#{row["total_quote"].ljust(10)}   | #{lead_month.ljust(15)}  |  #{year.to_s.ljust(10)} "
         end
     end
