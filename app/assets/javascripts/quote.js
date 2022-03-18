@@ -46,7 +46,10 @@ $(document).ready(function () {
         .getElementById("final-price")
         .querySelector("input");
 
+    let userInfo_div = document.querySelector(".user-info");
     let submitForm_div = document.querySelector(".submit-form");
+    let companyName_field = document.getElementById("company-name");
+    let userEmail_field = document.getElementById("user-email");
 
     let formatter = new Intl.NumberFormat("en-US", {
         style: "currency",
@@ -143,6 +146,8 @@ $(document).ready(function () {
             .forEach((input) => {
                 input.setAttribute("value", "");
             });
+        companyName_field.setAttribute("value", "");
+        userEmail_field.setAttribute("value", "");
     }
 
     function displayBuildingFields(buildingType) {
@@ -161,6 +166,7 @@ $(document).ready(function () {
         productLineSelection_div.style.display = "block";
         finalPricingDisplay_div.style.display = "block";
         submitForm_div.style.display = "block";
+        userInfo_div.style.display = "block";
     }
 
     function displayElvCalcResult(buildingType) {

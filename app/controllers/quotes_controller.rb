@@ -65,6 +65,6 @@ class QuotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def quote_params
-      params.require(:quote).permit(:building_type, :num_apts, :num_floors, :num_base, :num_comp, :num_park, :num_elev, :num_corps, :max_occ, :b_hours, :product_line, :unit_price, :elev_cost, :install_fee, :total_cost)
+      params.require(:quote).permit(:building_type, :num_apts, :num_floors, :num_base, :num_comp, :num_park, :num_elev, :num_corps, :max_occ, :b_hours, :product_line, :unit_price, :elev_cost, :install_fee, :total_cost, :email, :company_name)
     end
 end
