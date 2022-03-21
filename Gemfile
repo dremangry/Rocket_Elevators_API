@@ -19,6 +19,12 @@ gem 'devise'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'chartkick'
 gem 'twilio-ruby', '~> 5.65.1'
+gem 'slack-notifier', '~> 1.5', '>= 1.5.1'
+gem 'slack-ruby-bot'
+gem 'dotenv'
+gem 'celluloid-io'
+gem 'json', '~> 2.6', '>= 2.6.1'
+gem "figaro"
 # Use Puma as the app server
 gem 'puma', '~> 4.3.11'
 # Use SCSS for stylesheets

@@ -33,3 +33,4 @@
 # IGNORE
 database.yml
 Gemfile.lock
+.env
