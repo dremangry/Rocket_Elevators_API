@@ -24,9 +24,9 @@ class QuotesController < ApplicationController
   # POST /quotes or /quotes.json
   def create
     @quote = Quote.new(quote_params)
-    # Ping slack channel when a user's email is created
-    if @user = User.create(user_params)
-      SLACK_NOTIFIER.ping("New user: #{@user.email}", username: 'RocketElevators', icon_emoji: ':rocket:')
+    # # Ping slack channel when a user's email is created
+    # if @user = User.create(user_params)
+    #   SLACK_NOTIFIER.ping("New user: #{@user.email}", username: 'RocketElevators', icon_emoji: ':rocket:')
 
     respond_to do |format|
       if @quote.save
