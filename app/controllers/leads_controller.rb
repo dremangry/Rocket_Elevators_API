@@ -1,7 +1,8 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: %i[ show edit update destroy ]
+  include Freshdesk
 
-  # GET /leads or /leads.json
+    # GET /leads or /leads.json
   def index
     @leads = Lead.all
   end
@@ -24,10 +25,33 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.new(lead_params)
 
+    my_uri = "https://#{ENV['FRESHDESK_DOMAIN']}.freshdesk.com/api/v2/tickets"
+    my_key = ENV['FRESHDESK_API_KEY']
+
     respond_to do |format|
       if @lead.save
-        format.html { redirect_to '/', notice: "Thank you. We will communicate with you shortly!" }
+        format.html { redirect_to lead_url(@lead), notice: "Thank you. We will communicate with you shortly!" }
         format.json { render :show, status: :created, location: @lead }
+
+        data_hash = {
+          :subject => "#{@lead.full_name} from #{@lead.company_name}", 
+          :email => "#{@lead.email}",
+          :type => "Question",
+          :priority => 1,
+          :status => 2,
+          :custom_fields => {
+              "cf_comment": "The contact #{@lead.full_name}  from company #{@lead.company_name} can be reached at email #{@lead.email} and at phone number #{@lead.phone}. #{@lead.department_in_charge_of_elevators} has a project named #{@lead.project_name} which would require contribution from Rocket Elevators.\nProject Description: #{@lead.project_description}",
+              "cf_attached_message": "#{@lead.message}"
+          }
+        }
+        data_json = JSON.generate(data_hash)
+        req = RestClient::Request.execute(
+          method: :post,
+          url: my_uri,
+          user: my_key,
+          payload: data_json,
+          headers: {'Content-Type' => 'application/json'}
+        )
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @lead.errors, status: :unprocessable_entity }

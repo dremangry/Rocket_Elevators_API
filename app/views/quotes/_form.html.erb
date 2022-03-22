@@ -107,7 +107,8 @@
                     <div class="row" style="margin: 20px" id="elevator-amount">
                         <div class="col-6">
                             <label><h4 style="margin-bottom: 0px">Number of Elevators Required (Minimum of 1):</h4></label>
-                            <input class="form-control" type="text" readonly>	
+                            <%# <input class="form-control" type="text" readonly>	 %>
+                            <%= form.number_field :estimated_elev, id: "submit_estimated_elev", class: "form-control", :readonly => true%>
                             <p style="margin-bottom: 0px;">* With exception for commercial buildings</p>
                         </div>
                     </div>		

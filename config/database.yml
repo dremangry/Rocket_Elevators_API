@@ -8,11 +8,11 @@ default: &default
 
 development:
     <<: *default
-    database: rocketelevatorsfoobar
+    database: apiTest
 
 test:
     <<: *default
-    database: reapp_test
+    database: apiTest_test
 
 production:
     <<: *default

@@ -21,9 +21,10 @@ $(document).ready(function () {
     let maxOcc_input = document
         .getElementById("maximum-occupancy")
         .querySelector("input");
-    let displayCalcElv_input = document
-        .getElementById("elevator-amount")
-        .querySelector("input");
+    // let displayCalcElv_input = document
+    //     .getElementById("elevator-amount")
+    //     .querySelector("input");
+    let displayCalcElv_input = document.getElementById("submit_estimated_elev");
 
     let productLineSelection_div = document.querySelector(".product-line");
     let selectedProductLine = document.getElementById("submit_product_line");
