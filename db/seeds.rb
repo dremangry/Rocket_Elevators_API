@@ -92,7 +92,7 @@ records = JSON.parse(File.read(path))
     elsif i >= 25 and i <= 99
         entity = "building"
     end
-    Address.create!(type_of_address: types.sample, status: statuses.sample, entity: entity, number_and_street: address["address1"], suite_or_apartment: soa.sample, city: address["city"], postal_code: address["postalCode"], country: "United States", notes: Faker::Company.buzzword)
+    Address.create!(type_of_address: types.sample, status: statuses.sample, entity: entity, number_and_street: address["address1"], suite_or_apartment: soa.sample, city: address["city"], postal_code: address["postalCode"], country: "United States", state: address["state"], notes: Faker::Company.buzzword)
 end
 
 # Generating 25 customers connected with generated users

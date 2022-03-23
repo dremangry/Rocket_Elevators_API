@@ -36,3 +36,7 @@ en:
                 menu: "Summary"
                 breadcrumb: "Summary"
                 title: "Data Warehouse Chart Summary"
+            map:
+                menu: "Maps"
+                breadcrumb: "Maps"
+                title: "Customer Geolocation"
