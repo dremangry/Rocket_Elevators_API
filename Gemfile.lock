@@ -172,10 +172,6 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-<<<<<<< HEAD
-    json (2.6.1)
-=======
->>>>>>> a004a0fb6138a10e2fc8bf8c94f3a4850938e899
     jwt (2.3.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -205,12 +201,9 @@ GEM
     mini_portile2 (2.8.0)
     minitest (5.15.0)
     msgpack (1.4.5)
-<<<<<<< HEAD
     multipart-post (2.1.1)
-=======
     multi_json (1.15.0)
     multi_xml (0.6.0)
->>>>>>> a004a0fb6138a10e2fc8bf8c94f3a4850938e899
     mysql2 (0.5.3)
     nested_form (0.3.2)
     net-scp (3.0.0)
@@ -392,11 +385,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-<<<<<<< HEAD
-  dotenv
-=======
   dropbox_api
->>>>>>> a004a0fb6138a10e2fc8bf8c94f3a4850938e899
   ed25519 (>= 1.2, < 2.0)
   faker!
   figaro
