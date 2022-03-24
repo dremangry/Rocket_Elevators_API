@@ -130,8 +130,11 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+<<<<<<< HEAD
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+=======
+>>>>>>> main
     dropbox_api (0.1.21)
       faraday (< 3.0)
       oauth2 (~> 1.1)
@@ -376,10 +379,10 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  dropbox_api (~> 0.1.21)
+  dropbox_api
   ed25519 (>= 1.2, < 2.0)
   faker!
-  figaro (~> 1.2)
+  figaro
   font-awesome-rails (~> 4.7, >= 4.7.0.2)
   font-awesome-sass (~> 4.4.0)
   jbuilder (~> 2.5)
