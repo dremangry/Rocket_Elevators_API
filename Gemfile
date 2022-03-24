@@ -46,9 +46,10 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
-# NOTE: API
+# NOTE: APIs
 gem 'figaro', '~> 1.2'
 gem 'rest-client', '~> 2.1'
+gem 'dropbox_api', '~> 0.1.21'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
