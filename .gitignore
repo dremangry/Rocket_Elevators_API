@@ -33,3 +33,5 @@
 # IGNORE
 database.yml
 Gemfile.lock
+# Ignore application configuration
+/config/application.yml
