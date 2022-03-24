@@ -24,7 +24,9 @@ gem 'slack-ruby-bot'
 gem 'dotenv'
 gem 'celluloid-io'
 gem 'json', '~> 2.6', '>= 2.6.1'
-gem "figaro"
+gem 'figaro', '~> 1.2'
+gem 'aws-sdk-translate', '~> 1.0'
+gem 'aws-sdk-polly', '~> 1.0.0.rc3'
 # Use Puma as the app server
 gem 'puma', '~> 4.3.11'
 # Use SCSS for stylesheets
