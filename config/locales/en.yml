@@ -40,3 +40,5 @@ en:
                 menu: "Maps"
                 breadcrumb: "Maps"
                 title: "Customer Geolocation"
+            briefing:
+                menu: "Briefing"
