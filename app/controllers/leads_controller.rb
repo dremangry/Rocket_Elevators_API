@@ -1,5 +1,5 @@
 class LeadsController < ApplicationController
-  include LeadsHelper
+  
   before_action :set_lead, only: %i[ show edit update destroy ]
 
     # GET /leads or /leads.json
