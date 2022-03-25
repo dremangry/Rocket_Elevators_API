@@ -1,3 +1,5 @@
+require 'slacknotifier'
+
 class QuotesController < ApplicationController
   before_action :set_quote, only: %i[ show edit update destroy ]
 
@@ -22,6 +24,9 @@ class QuotesController < ApplicationController
   # POST /quotes or /quotes.json
   def create
     @quote = Quote.new(quote_params)
+    # # Ping slack channel when a user's email is created
+    # if @user = User.create(user_params)
+    #   SLACK_NOTIFIER.ping("New user: #{@user.email}", username: 'RocketElevators', icon_emoji: ':rocket:')
 
     my_uri = "https://#{ENV['FRESHDESK_DOMAIN']}.freshdesk.com/api/v2/tickets"
     my_key = ENV['FRESHDESK_API_KEY']

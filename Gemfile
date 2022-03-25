@@ -18,6 +18,10 @@ gem 'sprockets-rails', '2.3.3'
 gem 'devise'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'chartkick'
+gem 'figaro', '~> 1.2'
+# Twillo API
+gem 'twilio-ruby', '~> 5.65.1'
+gem 'slack-notifier'
 # Use Puma as the app server
 gem 'puma', '~> 4.3.11'
 # Use SCSS for stylesheets
@@ -47,7 +51,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
 # NOTE: APIs
-gem 'figaro', '~> 1.2'
 gem 'rest-client', '~> 2.1'
 gem 'dropbox_api', '~> 0.1.21'
 gem 'aws-sdk-polly', '~> 1.0.0.rc3'

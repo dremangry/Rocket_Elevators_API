@@ -1,0 +1,3 @@
+slack.client-id: <'client id'>
+slack.client-secret: <'client secret'>
+slack.verification-token: <'verification token'>
