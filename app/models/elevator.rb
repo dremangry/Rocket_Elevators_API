@@ -1,22 +1,21 @@
+require 'slack-notifier'
+
 class Elevator < ApplicationRecord
   belongs_to :column, dependent: :destroy
 
   after_update :printTest
 
   def printTest
-    puts "----------------------------------------------THE PROCESS START-------------------------------------------------------"
     isItDown
   end
   
   def isItDown
-    puts "----------------------------------------------isItDown Function START-------------------------------------------------------"
     if self.status == "Intervention"
       send_texto
     end
   end
 
   def send_texto
-    puts "----------------------------------------------send_texto Function START-------------------------------------------------------"
     account_sid = ENV["account_sid"]
     auth_token = ENV["auth_token"]
     @client = Twilio::REST::Client.new(account_sid, auth_token) 
@@ -30,3 +29,28 @@ class Elevator < ApplicationRecord
     puts message.sid
   end
 end
+  # after_update :statusChange
+
+  
+  before_update do
+    if self.status_changed? == true
+      @old_status = self.status_was
+      statusChange
+    end
+  end
+
+
+  def statusChange
+    if self.status == "valid"
+      puts "This Elevator's status changed to valid"
+      slacknotifier = Slack::Notifier.new(ENV["SLACK_NOTIFIER_URL"])
+      slacknotifier.ping "The Elevator #{self.id} with Serial Number #{self.serial_number} changed status from #{@old_status} to #{self.status}", channel: "#slack-notifier-api", username: "RocketElevators"
+
+    else self.status == "invalid"
+      slacknotifier = Slack::Notifier.new(ENV["SLACK_NOTIFIER_URL"])
+      slacknotifier.ping "The Elevator #{self.id} with Serial Number #{self.serial_number} changed status fromm #{@old_status} to #{self.status}", channel: "#slack-notifier-api", username: "RocketElevators"
+      # , icon_emoji: ':rocket:'
+    end
+  end
+
+end 

@@ -33,8 +33,5 @@
 # IGNORE
 database.yml
 Gemfile.lock
-# Ignore master key for decrypting credentials and more.
-/config/master.key
-
 # Ignore application configuration
 /config/application.yml
