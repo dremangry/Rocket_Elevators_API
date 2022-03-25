@@ -85,6 +85,7 @@ class LeadsController < ApplicationController
                 "cf_attached_message": "#{@lead.message}"
             }
           }
+          
           data_json = JSON.generate(data_hash)
           # site.post(data_json)
           RestClient::Request.execute(
