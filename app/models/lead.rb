@@ -4,7 +4,8 @@ require 'openssl'
 
 class Lead < ApplicationRecord
     has_one_attached :attached_file_stored_as_binary
-    #has_one_attached :attached_file_stored_as_binary
+
+    # NOTE: NOTIFY.EU API
     after_create :send_email
 
     def send_email
@@ -22,8 +23,6 @@ class Lead < ApplicationRecord
         request["Content-Type"] = 'application/json'
         request["X-RapidAPI-Host"] = ENV['Rapid_API_Host']
         request["X-RapidAPI-Key"] = ENV['Rapid_API_Key']
-
-        #current_lead = Lead.first
 
         request.body = "{
             \"message\": {
