@@ -10,12 +10,14 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-    adapter: mysql2
-    encoding: utf8
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    username: root
-    password:
-    # socket: /var/run/mysqld/mysqld.sock
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: 
+  socket: /var/run/mysqld/mysqld.sock
+
+
 
 development:
     <<: *default
@@ -48,7 +50,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-    <<: *default
-    database: Rocket_Elevators_Information_System_production
-    username: Rocket_Elevators_Information_System
-    password: <%= ENV['ROCKET_ELEVATORS_INFORMATION_SYSTEM_DATABASE_PASSWORD'] %>
+  <<: *default
+  database: Rocket_Elevators_Information_System_production
+  username: Rocket_Elevators_Information_System
+  password: <%= ENV['ROCKET_ELEVATORS_INFORMATION_SYSTEM_DATABASE_PASSWORD'] %>

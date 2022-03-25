@@ -1,3 +1,4 @@
+
 <!-- PAGE HEADER BREADCRUMBS -->
 <section class="page-header page-header-xs parallax parallax-3" style="background-image:url(<%= asset_path 'rocketElevators/imgpattern2.jpg' %>)">
   <div class="overlay dark-2"></div>
@@ -27,6 +28,12 @@
   </div>
 </section>
 <!-- /PARALLAX -->
+
+    <!-- RECAPCHA -->
+    <%= content_for :recaptcha_js do %>
+        <%= include_recaptcha_js %>
+    <% end %>
+    <!-- /RECAPCHA -->
 
 <!-- FORM -->
 <section>
@@ -225,7 +232,7 @@
                     </div>
                 </div>
             </div>
-
+            <%= recaptcha_action('checkout') %>
             <div class="actions submit-form" style="display: none;">
                 <%= form.submit class: "btn btn-primary btn-lg" %>
             </div>
