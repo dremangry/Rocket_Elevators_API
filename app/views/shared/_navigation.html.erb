@@ -39,10 +39,6 @@
                             <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
                             <% if Employee.where(user_id: current_user.id).exists? %>
                                 <li><%= link_to "ADMIN", rails_admin_path %></li>
-                                <li>
-                                    <button onclick="pollyGreet()" class="btn btn-primary">Briefing</button>
-                                    <%= audio_tag "greetings.mp3", id: "greetings" %>
-                                </li>
                             <% end %>
                         <% else %>
                             <li><%= link_to "SIGN UP", new_user_registration_path %></li>
