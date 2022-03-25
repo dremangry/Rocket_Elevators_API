@@ -1,5 +1,3 @@
-require 'slacknotifier'
-
 class QuotesController < ApplicationController
   before_action :set_quote, only: %i[ show edit update destroy ]
 
