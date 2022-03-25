@@ -25,8 +25,13 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
+<<<<<<< HEAD
     <<: *default
     database: apiTest_test
+=======
+  <<: *default
+  database: Rocket_Elevators_Information_System_test
+>>>>>>> main
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -48,7 +53,14 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+<<<<<<< HEAD
     <<: *default
     database: Rocket_Elevators_Information_System_production
     username: Rocket_Elevators_Information_System
     password: <%= ENV['ROCKET_ELEVATORS_INFORMATION_SYSTEM_DATABASE_PASSWORD'] %>
+=======
+  <<: *default
+  database: Rocket_Elevators_Information_System_production
+  username: Rocket_Elevators_Information_System
+  password: <%= ENV['ROCKET_ELEVATORS_INFORMATION_SYSTEM_DATABASE_PASSWORD'] %>
+>>>>>>> main
