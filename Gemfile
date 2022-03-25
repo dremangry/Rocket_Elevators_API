@@ -24,6 +24,9 @@ gem 'chartkick'
 gem 'figaro', '~> 1.2'
 # Twillo API
 gem 'twilio-ruby', '~> 5.65.1'
+# Recapcha API
+gem 'new_google_recaptcha'
+
 gem 'slack-notifier'
 # Use Puma as the app server
 gem 'puma', '~> 4.3.11'

@@ -78,4 +78,3 @@ This project was made possible through the support of:
 -   Patrick Thibault
 -   Francis Patry-Jessop
 -   CodeBoxx School of Technology Community
-
