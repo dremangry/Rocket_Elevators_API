@@ -1,5 +1,3 @@
-require 'slacknotifier'
-
 class QuotesController < ApplicationController
   before_action :set_quote, only: %i[ show edit update destroy ]
 
@@ -22,6 +20,21 @@ class QuotesController < ApplicationController
   end
 
   # POST /quotes or /quotes.json
+  def create
+    @post = Post.new(post_params)
+    if NewGoogleRecaptcha.human?(
+        params[:new_google_recaptcha_token],
+        "checkout",
+        NewGoogleRecaptcha.minimum_score,
+        @post
+      ) && @post.save
+      redirect_to @post, notice: 'Post was successfully created.'
+    else
+      render :new
+    end
+  end
+  
+  
   def create
     @quote = Quote.new(quote_params)
     # # Ping slack channel when a user's email is created
