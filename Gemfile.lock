@@ -385,15 +385,7 @@ DEPENDENCIES
   dropbox_api (~> 0.1.21)
   ed25519 (>= 1.2, < 2.0)
   faker!
-<<<<<<< HEAD
   figaro (~> 1.2)
-=======
-<<<<<<< HEAD
-  figaro (~> 1.2)
-=======
-  figaro
->>>>>>> main
->>>>>>> main
   font-awesome-rails (~> 4.7, >= 4.7.0.2)
   font-awesome-sass (~> 4.4.0)
   jbuilder (~> 2.5)
