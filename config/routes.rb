@@ -15,5 +15,8 @@ Rails.application.routes.draw do
   root "home#index"
   get "commercial",  to: "home#commercial"
   get "residential", to: "home#residential"
+
+
+  resources :synthesized_messages
   
 end
