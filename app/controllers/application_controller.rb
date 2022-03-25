@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
                 resp = client.synthesize_speech({output_format: "mp3", sample_rate: "8000", text: text, text_type: "text", voice_id: "Russell",})
                 audio = resp.audio_stream
                 IO.copy_stream(audio, "app/assets/audio/greetings.mp3") 
+                p "new audio file generated for user #{current_user.first_name}"
             end
         end 
     end
