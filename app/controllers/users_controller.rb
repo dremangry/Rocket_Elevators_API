@@ -1,3 +1,5 @@
+require 'slacknotifier'
+
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
@@ -22,6 +24,9 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
+    # # Ping slack channel when a user's email is created
+    # @user = User.create(user_params)
+    # SLACK_NOTIFIER.ping("New user: #{@user.email}", username: 'RocketElevators', icon_emoji: ':rocket:')
 
     respond_to do |format|
       if @user.save
