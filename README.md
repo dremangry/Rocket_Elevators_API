@@ -28,7 +28,7 @@ Twilio supports all forms of communication and can be integreted as an API into 
 To try it, log in and change the status of an elevator to "Intervention".
 
 ### 3. Slack
-Slack API is able to give record of different activities that occur in the backoffice and inform the right people through the right channel. In our case, we use it to inform operators when an elevator status change. It tells the previous and new status of a the specific elevator (ID and serial number). 
+Slack API is able to give record of different activities that occur in the backoffice and inform the right people through the right channel. In our case, we use it to inform operators when an elevator status has changed. It tells the previous and new status of a the specific elevator (ID and serial number). 
 
 To try it, log in and change the status of an elevator.
 
@@ -45,7 +45,7 @@ To try it,
 ### 6. Amazon Polly
 Amazon Polly is a service that turns text into realistic speech. In our case, we use that API to add to the Admin dashboard the possibility to start a vocal brifing.
 
-To try it,
+To try it, log in and click on briefing in the administration dashboard.
 
 ### 7. Notify
 Notify API connects existing messaging services to make sure to be inform. In our case, an e-mail is send to the relevant person when a form contact is submit

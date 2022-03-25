@@ -24,7 +24,7 @@ class Elevator < ApplicationRecord
                          body: 'An elevator is down Perry, could you take a look!', 
                          from: '+19362431788', 
                          messaging_service_sid: 'MGcce2abc02811ce660f3aac244eda0d2f',      
-                         to: '4505014090' 
+                         to: '5142390177' 
                        ) 
     puts message.sid
   end
