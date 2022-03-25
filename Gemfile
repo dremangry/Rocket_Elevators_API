@@ -23,6 +23,7 @@ gem 'sprockets-rails', '2.3.3'
 gem 'devise'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'chartkick'
+gem 'slack-notifier'
 # Use Puma as the app server
 gem 'puma', '~> 4.3.11'
 # Use SCSS for stylesheets
