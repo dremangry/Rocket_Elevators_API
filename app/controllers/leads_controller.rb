@@ -22,6 +22,22 @@ class LeadsController < ApplicationController
 
   # POST /leads or /leads.json
   def create
+    puts "create lead function works ---------------------------------------------"
+    @post = Post.new(post_params)
+    if NewGoogleRecaptcha.human?(
+        params[:new_google_recaptcha_token],
+        "checkout",
+        NewGoogleRecaptcha.minimum_score,
+        @post
+      ) && @post.save
+      redirect_to @post, notice: 'Post was successfully created.'
+    else
+      render :new
+    end
+  end
+  
+  def create
+    puts "create lead function works ---------------------------------------------"
     @lead = Lead.new(lead_params)
 
     respond_to do |format|
