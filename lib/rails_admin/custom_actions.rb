@@ -39,20 +39,27 @@ module RailsAdmin
                 # register_instance_option :http_methods do
                 #     [:get]
                 # end
+         
+                # register_instance_option :controller do
+                #     before_action :hi
+                #     proc do
+                #         p ">>>> HEYYYYYYYY"
+                #         client = Aws::Polly::Client.new
+                #         resp = client.synthesize_speech({output_format: "mp3", sample_rate: "8000", text: "Hello world!", text_type: "text", voice_id: "Matthew",})
+                #         audio = resp.audio_stream
+                #         IO.copy_stream(audio, "hello.mp3") 
+                #         send_file "hello.mp3", type: "audio/mpeg", disposition: 'inline'
+                #         # send_data resp.audio_stream.read, type: "audio/mpeg", disposition: 'inline'
 
-                register_instance_option :controller do
-                    proc do
-                        p ">>>> HEYYYYYYYY"
-                        client = Aws::Polly::Client.new
-                        resp = client.synthesize_speech({output_format: "mp3", sample_rate: "8000", text: "Hello world!", text_type: "text", voice_id: "Matthew",})
-                        audio = resp.audio_stream
-                        IO.copy_stream(audio, "hello.mp3") 
-                        send_file "hello.mp3", type: "audio/mpeg", disposition: 'inline'
-                        # send_data resp.audio_stream.read, type: "audio/mpeg", disposition: 'inline'
-
-                    end
+                #     end
 
                  
+                # end
+
+                private
+
+                def hi
+                    p ">>>>>> hiiiiii"
                 end
             end
 

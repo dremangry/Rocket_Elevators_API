@@ -53,7 +53,7 @@ class LeadsController < ApplicationController
           attachments: [File.new(blob_path, "rb")]
         }
         
-        data_json = JSON.generate(data_hash)
+        # data_json = JSON.generate(data_hash)
         site = RestClient::Resource.new(my_uri, my_key, 'X')
         site.post(data_hash)
 
