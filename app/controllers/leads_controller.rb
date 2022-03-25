@@ -39,6 +39,11 @@ class LeadsController < ApplicationController
         # client = RestClient::Resource.new
 
         if attachment_exists
+          
+          attachment = @lead.attached_file_stored_as_binary.attachment
+          blob_data = @lead.attached_file_stored_as_binary.blob
+          blob_path = blob_data.service.path_for(blob_data.key)
+          
           # NOTE: FRESHDESK
           data_hash = {
               status: 2,
@@ -57,13 +62,13 @@ class LeadsController < ApplicationController
             # data_json = JSON.generate(data_hash)
             site.post(data_hash)
 
-            attachment = @lead.attached_file_stored_as_binary.attachment
-            blob_data = @lead.attached_file_stored_as_binary.blob
-            blob_path = blob_data.service.path_for(blob_data.key)
-            
             if user_is_customer
               # NOTE: DROPBOX
-              client = DropboxApi::Client.new
+              authenticator = DropboxApi::Authenticator.new(ENV["DROPBOX_KEY"], ENV["DROPBOX_SECRET"])
+              authenticator.auth_code.authorize_url(token_access_type: "offline")
+              access_token = authenticator.auth_code.get_token(ENV["DROPBOX_ACCESS_CODE"])
+              client = DropboxApi::Client.new(access_token: access_token)
+
               folder_exists = client.search("#{@lead.full_name}").matches[0]
               client.create_folder("/#{@lead.full_name}") unless folder_exists
               file_path = "/#{@lead.full_name}/#{blob_data.filename.sanitized}"

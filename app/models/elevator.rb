@@ -28,7 +28,7 @@ class Elevator < ApplicationRecord
                        ) 
     puts message.sid
   end
-end
+
   # after_update :statusChange
 
   before_update do
