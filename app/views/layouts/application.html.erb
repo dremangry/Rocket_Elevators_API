@@ -4,7 +4,9 @@
     <title>Rocket Elevators</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
- 
+    
+    <meta name='turbolinks-visit-control' content='reload'>
+
     <%= tag :meta, name: :psj, action: action_name, controller: controller_name %>
  
     <%= favicon_link_tag asset_path('rocketElevators/icon.png')%>
@@ -24,6 +26,7 @@
  
     <!-- PAGELEVEL SCRIPTS -->
     <%= javascript_include_tag 'quote' %>
+    <%= javascript_include_tag 'greetings' %>
     <%= javascript_include_tag 'modal', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'contact', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'scripts', 'data-turbolinks-track': 'reload' %>
@@ -72,5 +75,5 @@
     </div>
     <%= render "shared/footer" %>
   </body>
- 
 </html>
+

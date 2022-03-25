@@ -1,7 +1,10 @@
+# include ActionController::Streaming
+# require ActiveController::Streaming
+# require 'app/helpers/home_helper.rb'
+
 RailsAdmin.config do |config|
   # config.parent_controller = "::ApplicationController"
   require Rails.root.join('lib', 'rails_admin', 'custom_actions.rb')
-
   ### Popular gems integration
  
   ## == Devise ==
@@ -9,7 +12,6 @@ RailsAdmin.config do |config|
   config.authorize_with do
     redirect_to main_app.root_path unless user_signed_in? and Employee.where(user_id: current_user.id).exists? 
   end
-
   ## == CancanCan ==
   # config.authorize_with :cancancan
 
@@ -26,9 +28,10 @@ RailsAdmin.config do |config|
   # config.show_gravatar = true
 
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
+    dashboard                # mandatory
+    index                   # mandatory
     root
+    map
     new
     export
     bulk_delete
