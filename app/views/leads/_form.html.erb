@@ -23,6 +23,12 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <strong>Sorry!</strong> You need to complete all mandatory (*) fields!
     </div>
+
+    <!-- RECAPCHA -->
+        <%= content_for :recaptcha_js do %>
+            <%= include_recaptcha_js %>
+        <% end %>
+        <!-- /RECAPCHA -->
     
         <fieldset>
             <input type="hidden" name="action" value="contact_send" />
@@ -76,6 +82,9 @@
                 </div>
             </div>
         </fieldset>
+
+
+        <%= recaptcha_action('checkout') %>
 
         <div class="row">
             <div class="col-md-12">
