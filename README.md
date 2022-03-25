@@ -4,61 +4,58 @@
 
 - [Project Description](#project-description)
 - [Application Requirements](#application-requirements)
-- [Using the Web App Features](#using-the-web-app-features)
+- [Using API to improve website features](#using-api-to-improve-website-features)
 - [Credits](#credits)
 
 ## Project Description
-
-The project serves a three-fold purposes: (1) the conversion of static to dynamic website, and (2) the utilization of databases and data warehouse, and (3) creation of back office. The conversion to dynamic website was implemented using Ruby on Rails framework. With respect to front-end tasks, this included the use of Asset Pipeline, Rails Routing, Partials, and Controller. For back-end related tasks, the project utilized MySQL and PostgreSQL for database and data warehousing, respectively. All active records along with their associations were generated using Rails commands, and data entries stored in the seed file was generated using Faker gem. Lastly, the back office was generated using Rails_Admin gem along with Devise gem for user authentication and user session management. 
+The main purpose of adding API to a website is to enriched the experience 
 
 ## Application Requirements
 
 -   [Ruby](https://www.ruby-lang.org/en/downloads/) (v2.7.5)
--   [Rails](https://rubyonrails.org/) (v.5.2.6)
+-   [Rails](https://rubyonrails.org/) (v5.2.6)
 
-## Using the Web App Features
+## Using API to improve website features
 
-### 1. Quote Form & Contact Form Submission
-All users and non-users can submit quote and contact form. Submitted data will then be stored in the database on the tables 'Quotes' and 'Leads', respectively.
+### 1. Google Maps
+Google Maps API helps you to bring the power of Google Maps directly on your website. In our case, we use it in our backoffice to show all building location.
 
-### 2. Databases & Data Warehouse
-MySQL database of the web app contains data associated with: users, employees, customers, buildings, batteries, columns, elevators, addresses (of buildings & customers), quote form submission, and contact form submission (lead). Data entries regarding to customers, quote form, contact form, and deployed elevators with a creation date timestamp within the last 3 years (2019 - 2022) were stored in a PostgreSQL data warehouse. Extraction and loading of data from MySQL to PostgreSQL were performed using the rake task commands outlined below. Note that the <database_name> is the name of database for the data warehouse in PostgreSQL.
+To try it, log in and in the administration and click on Map.
 
-- Pertaining to quote form submission:
-  ```
-  rake warehouse:create_quoteFact[<database_name>]
-  rake warehouse:import_quoteFact[<database_name>]
-  ```
-- Pertaining to contact form submission:
-  ```
-  rake warehouse:create_quoteFact[<database_name>]
-  rake warehouse:import_quoteFact[<database_name>]
-  ```
-- Pertaining to deployed elevators:
-  ```
-  rake warehouse:create_quoteFact[<database_name>]
-  rake warehouse:import_quoteFact[<database_name>]
-  ```
-- Pertaining to customers:
-  ```
-  rake warehouse:create_dimCustomer[<database_name>]
-  rake warehouse:import_dimCustomer[<database_name>]
-  ```
-The rake task is also equipped with 3 queries and can be executed using the following commands:
-- Query 1: The number of unique requests grouped by Month (2019-2022)
-  ```
-  rake query:one[<database_name>]
-  ```
-- Query 2: Number of unique requests grouped by Month (2019-2022)
-  ```
-  rake query:two[<database_name>]
-  ```
-- Query 3: Total number of elevators contained belonging to each customer (2019-2022)
-  ```
-  rake query:three[<database_name>]
-  ```
-Upon successful execution, the following query results will be printed on the console. 
-![Queries](https://drive.google.com/uc?export=view&id=1ISgVlMSkzPhPt43bSdylXj4CfUl9xHch)
+### 2. Twilio
+Twilio supports all forms of communication and can be integreted as an API into your plateform. In our case, we use it to warn the technician we he has to intervene. When the status of an elevator is changed to "Intervention".
+
+To try it, log in and change the status of an elevator to "Intervention".
+
+### 3. Slack
+Slack API is able to give record of different activities that occur in the backoffice and inform the right people through the right channel. In our case, we use it to inform operators when an elevator status has changed. It tells the previous and new status of a the specific elevator (ID and serial number). 
+
+To try it, log in and change the status of an elevator.
+
+### 4. DropBox
+DropBox API is able to automated the upload of certains files directly in a file in your cloud account. In our case, we use it to update to the server the file uploaded in the lead form once the contact becomes a customer.
+
+To try it, fill a 
+
+### 5. FreshDesk
+FreshDesk is a usefull tool to make sure to follow up on every contact, no matter the source of this incomming message. In our case, we use it to send a ticket request if you fill the lead form or the quote form.
+
+To try it, 
+
+### 6. Amazon Polly
+Amazon Polly is a service that turns text into realistic speech. In our case, we use that API to add to the Admin dashboard the possibility to start a vocal brifing.
+
+To try it, log in and click on briefing in the administration dashboard.
+
+### 7. Notify
+Notify API connects existing messaging services to make sure to be inform. In our case, an e-mail is send to the relevant person when a form contact is submit
+
+To try it, fill the lead form with your valid e-mail adress. Then, take a look at your mailbox.
+
+### 8. reCAPTCHA
+reCAPTCHA API helps to protect your website form to get spammed or abuse. In our case, we use it to secure the lead form and the quote form. 
+
+You can see it in the lower right corner of the homepage and of the quote page.
 
 ### 3. Access to Back Office (Restricted)
 Access to back-end office is restricted to users that were assigned as [employees](https://docs.google.com/spreadsheets/d/1-S0updscUGOpBpFE-2plFBJlVkCseOUuUpp7nu5e-fY/edit#gid=1786076246). Email and password are also required to access the back-end office. To login, simply use the employee's email and using the password that follows the logic of: first letter of first name + first letter of last names + 1234. For example:
@@ -73,8 +70,9 @@ Access to back-end office is restricted to users that were assigned as [employee
 
 This project was made possible through the support of:
 
--   Emmanuela Derilus
+-   Perry Sawatzky
 -   Mathieu	Houde
 -   Patrick Thibault
 -   Francis Patry-Jessop
 -   CodeBoxx School of Technology Community
+
