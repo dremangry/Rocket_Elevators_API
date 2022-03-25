@@ -80,11 +80,11 @@ class LeadsController < ApplicationController
 
             if user_is_customer
               # NOTE: DROPBOX
-              authenticator = DropboxApi::Authenticator.new(ENV["DROPBOX_KEY"], ENV["DROPBOX_SECRET"])
-              authenticator.auth_code.authorize_url(token_access_type: "offline")
-              access_token = authenticator.auth_code.get_token(ENV["DROPBOX_ACCESS_CODE"])
-              client = DropboxApi::Client.new(access_token: access_token)
-
+              # authenticator = DropboxApi::Authenticator.new(ENV["DROPBOX_KEY"], ENV["DROPBOX_SECRET"])
+              # authenticator.auth_code.authorize_url(token_access_type: "offline")
+              # access_token = authenticator.auth_code.get_token(ENV["DROPBOX_ACCESS_CODE"])
+              # client = DropboxApi::Client.new(access_token: access_token)
+              client = DropboxApi::Client.new
               folder_exists = client.search("#{@lead.full_name}").matches[0]
               client.create_folder("/#{@lead.full_name}") unless folder_exists
               file_path = "/#{@lead.full_name}/#{blob_data.filename.sanitized}"
