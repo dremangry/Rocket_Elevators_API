@@ -35,12 +35,8 @@ To try it, log in and change the status of an elevator.
 ### 4. DropBox
 DropBox API is able to automated the upload of certains files directly in a file in your cloud account. In our case, we use it to update to the server the file uploaded in the lead form once the contact becomes a customer.
 
-To try it, fill a 
-
 ### 5. FreshDesk
 FreshDesk is a usefull tool to make sure to follow up on every contact, no matter the source of this incomming message. In our case, we use it to send a ticket request if you fill the lead form or the quote form.
-
-To try it, 
 
 ### 6. Amazon Polly
 Amazon Polly is a service that turns text into realistic speech. In our case, we use that API to add to the Admin dashboard the possibility to start a vocal brifing.
