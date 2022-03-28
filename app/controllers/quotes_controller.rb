@@ -21,6 +21,21 @@ class QuotesController < ApplicationController
 
   # POST /quotes or /quotes.json
   def create
+    @post = Post.new(post_params)
+    if NewGoogleRecaptcha.human?(
+        params[:new_google_recaptcha_token],
+        "checkout",
+        NewGoogleRecaptcha.minimum_score,
+        @post
+      ) && @post.save
+      redirect_to @post, notice: 'Post was successfully created.'
+    else
+      render :new
+    end
+  end
+  
+  
+  def create
     @quote = Quote.new(quote_params)
     # # Ping slack channel when a user's email is created
     # if @user = User.create(user_params)
@@ -106,7 +121,7 @@ class QuotesController < ApplicationController
       when "Corporate"
         description = "Submission details as follows. Number of Floors: #{quote.num_floors}, Number of Basements: #{quote.num_base}, Number of Parking Spots: #{quote.num_park}, Number of Corporation: #{quote.num_corps}, Maximum Occupancy: #{quote.max_occ}, Estimated Number of Elevators: #{quote.estimated_elev}, Product Line: #{quote.product_line}, Total Cost: #{quote.total_cost}"
       when "Hybrid"
-        "Submission details as follows. Number of Floors: #{quote.num_floors}, Number of Basements: #{quote.num_base}, Number of Companies: #{quote.num_comp}, Number of Parking Spots: #{quote.num_park}, Maximum Occupancy: #{quote.max_occ}, Business Hours: #{quote.b_hours}, Estimated Number of Elevators: #{quote.estimated_elev}, Product Line: #{quote.product_line}, Total Cost: #{quote.total_cost}"
+        description = "Submission details as follows. Number of Floors: #{quote.num_floors}, Number of Basements: #{quote.num_base}, Number of Companies: #{quote.num_comp}, Number of Parking Spots: #{quote.num_park}, Maximum Occupancy: #{quote.max_occ}, Business Hours: #{quote.b_hours}, Estimated Number of Elevators: #{quote.estimated_elev}, Product Line: #{quote.product_line}, Total Cost: #{quote.total_cost}"
       end
     end
 

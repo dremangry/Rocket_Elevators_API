@@ -7,9 +7,12 @@
         <hr/>
         <div class="card-body">
             <p class="card-text"><strong style="color: #D95350">Note:</strong> Y-axis represents cumulative number of contacts within the last 3 years (2019-2022).</p>
-        
+
             <% month_list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
-            <% conn = PG::Connection.open(:dbname => "foobarwarehouse") %>
+            <% host_name = ENV['CODEBOXX_HOST'] %>
+            <% user_name = ENV['CODEBOXX_USER'] %>
+            <% pwd = ENV['CODEBOXX_PWD'] %>
+            <% conn = PG::Connection.open(:host => host_name, :user => user_name, :password => pwd, :dbname => "MarcAndreRamirez") %>
             <% data = [] %>
             <% (0..11).each do |i| %> 
                 <% month = i + 1 %>
@@ -32,7 +35,10 @@
             <p class="card-text"><strong style="color: #D95350">Note:</strong> Y-axis represents cumulative number of quote requests within the last 3 years (2019-2022).</p>
         
             <% month_list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
-            <% conn = PG::Connection.open(:dbname => "foobarwarehouse") %>
+            <% host_name = ENV['CODEBOXX_HOST'] %>
+            <% user_name = ENV['CODEBOXX_USER'] %>
+            <% pwd = ENV['CODEBOXX_PWD'] %>
+            <% conn = PG::Connection.open(:host => host_name, :user => user_name, :password => pwd, :dbname => "MarcAndreRamirez") %>
             <% data = [] %>
             <% (0..11).each do |i| %> 
                 <% month = i + 1 %>
@@ -54,7 +60,10 @@
         <div class="card-body">
             <p class="card-text"><strong style="color: #D95350">Note:</strong> X-axis represents total number of elevators for companies created within the last 3 years (2019-2022).</p>
 
-            <% conn = PG::Connection.open(:dbname => "foobarwarehouse") %>
+            <% host_name = ENV['CODEBOXX_HOST'] %>
+            <% user_name = ENV['CODEBOXX_USER'] %>
+            <% pwd = ENV['CODEBOXX_PWD'] %>
+            <% conn = PG::Connection.open(:host => host_name, :user => user_name, :password => pwd, :dbname => "MarcAndreRamirez") %>
             <% data = [] %>
             <% conn.exec("SELECT num_elev, company_name FROM dim_customer").to_a.each do |row| %>
                 <% data.push([row["company_name"], row["num_elev"]]) %>
