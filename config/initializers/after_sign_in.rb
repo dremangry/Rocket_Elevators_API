@@ -7,7 +7,8 @@ Warden::Manager.after_set_user except: :fetch do |user, auth, opts|
         resp = client.synthesize_speech({output_format: "mp3", sample_rate: "8000", text: text, text_type: "text", voice_id: "Russell",})
         audio = resp.audio_stream
         IO.copy_stream(audio, "app/assets/audio/greetings.mp3") 
-        Rails.logger.info "--------------------- new audio file generated for user #{user.first_name} ---------------------"
+        # Rails.logger.info "--------------------- new audio file generated for user #{user.first_name} ---------------------"
+        puts "--------------------- new audio file generated for user #{user.first_name} ---------------------"
 
     end
 end
