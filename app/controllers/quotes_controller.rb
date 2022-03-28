@@ -121,7 +121,7 @@ class QuotesController < ApplicationController
       when "Corporate"
         description = "Submission details as follows. Number of Floors: #{quote.num_floors}, Number of Basements: #{quote.num_base}, Number of Parking Spots: #{quote.num_park}, Number of Corporation: #{quote.num_corps}, Maximum Occupancy: #{quote.max_occ}, Estimated Number of Elevators: #{quote.estimated_elev}, Product Line: #{quote.product_line}, Total Cost: #{quote.total_cost}"
       when "Hybrid"
-        "Submission details as follows. Number of Floors: #{quote.num_floors}, Number of Basements: #{quote.num_base}, Number of Companies: #{quote.num_comp}, Number of Parking Spots: #{quote.num_park}, Maximum Occupancy: #{quote.max_occ}, Business Hours: #{quote.b_hours}, Estimated Number of Elevators: #{quote.estimated_elev}, Product Line: #{quote.product_line}, Total Cost: #{quote.total_cost}"
+        description = "Submission details as follows. Number of Floors: #{quote.num_floors}, Number of Basements: #{quote.num_base}, Number of Companies: #{quote.num_comp}, Number of Parking Spots: #{quote.num_park}, Maximum Occupancy: #{quote.max_occ}, Business Hours: #{quote.b_hours}, Estimated Number of Elevators: #{quote.estimated_elev}, Product Line: #{quote.product_line}, Total Cost: #{quote.total_cost}"
       end
     end
 
