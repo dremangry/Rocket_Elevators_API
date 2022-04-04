@@ -68,10 +68,6 @@ class LeadsController < ApplicationController
               description: "The contact #{@lead.full_name}  from company #{@lead.company_name} can be reached at email #{@lead.email} and at phone number #{@lead.phone}. #{@lead.department_in_charge_of_elevators} has a project named #{@lead.project_name} which would require contribution from Rocket Elevators.\nProject Description: #{@lead.project_description}\n#{@lead.message}.\nThe Contact uploaded an attachment",
               email: "#{@lead.email}",
               type:"Question",
-              custom_fields: {
-                  "cf_comment": "The contact #{@lead.full_name}  from company #{@lead.company_name} can be reached at email #{@lead.email} and at phone number #{@lead.phone}. #{@lead.department_in_charge_of_elevators} has a project named #{@lead.project_name} which would require contribution from Rocket Elevators.\nProject Description: #{@lead.project_description}",
-                  "cf_attached_message": "#{@lead.message}"
-              },
               attachments: [File.new(blob_path, "rb")]
             }
 
@@ -100,11 +96,7 @@ class LeadsController < ApplicationController
             subject: "#{@lead.full_name} from #{@lead.company_name}", 
             description: "The contact #{@lead.full_name}  from company #{@lead.company_name} can be reached at email #{@lead.email} and at phone number #{@lead.phone}. #{@lead.department_in_charge_of_elevators} has a project named #{@lead.project_name} which would require contribution from Rocket Elevators.\nProject Description: #{@lead.project_description}\n#{@lead.message}.\nThe Contact uploaded an attachment",
             email: "#{@lead.email}",
-            type:"Question",
-            custom_fields: {
-                "cf_comment": "The contact #{@lead.full_name}  from company #{@lead.company_name} can be reached at email #{@lead.email} and at phone number #{@lead.phone}. #{@lead.department_in_charge_of_elevators} has a project named #{@lead.project_name} which would require contribution from Rocket Elevators.\nProject Description: #{@lead.project_description}",
-                "cf_attached_message": "#{@lead.message}"
-            }
+            type:"Question"
           }
           
           data_json = JSON.generate(data_hash)
